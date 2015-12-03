@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - MMDirectives.Web</title>
+
+        <environment names="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment names="Staging,Production">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>
+
+
+        <link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="/lib/animate.css/animate.css" />
+
+        <!-- bower:css -->
+        <!-- endbower -->
+
+    </head>
+<body ng-app="app">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">MMDirectives.Web</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Modals Notifications<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="active"><a href="/#/mmActionModal" data-toggle="tab">mmActionModal</a></li>
+                            <li><a ui-sref="mmScroll" data-toggle="tab">mmScroll</a></li>
+                            <li><a href="/#/mmSelectionModal" data-toggle="tab">mmSelectionModal</a></li>
+                            <li><a href="/#/mmSelectionModalAjax" data-toggle="tab">mmSelectionModalAjax</a></li>
+                            <li><a href="/#/popover" data-toggle="tab">popover</a></li>
+                            <li><a href="/#/tooltip" data-toggle="tab">tooltip</a></li>
+                            <li><a href="/#/validationText" data-toggle="tab">validationText</a></li>
+                            <li><a href="/#/mmwizard" data-toggle="tab">Wizard</a></li>
+                            <li><a href="/#/mainMenuCommands" data-toggle="tab">Main Menu commands</a></li>
+                            <li><a href="/#/pageAlerts" data-toggle="tab">Page Alerts</a></li>
+                            <li><a href="/#/toastrAlerts" data-toggle="tab">Toastr Alerts</a></li>
+                            <li><a href="/#/modals" data-toggle="tab">Modals</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">List <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/#/mmChart" data-toggle="tab">mmChart</a></li>
+                            <li><a href="/#/mmDropZone" data-toggle="tab">mmDropZone</a></li>
+                            <li><a href="/#/mmFileRead" data-toggle="tab">mmFileUploader</a></li>
+                            <li><a href="/#/mmFullcalendar" data-toggle="tab">mmFullcalendar</a></li>
+                            <li><a href="/#/mmMap" data-toggle="tab">mmMap</a></li>
+                            <li><a href="/#/mmSortable" data-toggle="tab">mmSortable</a></li>
+                            <li><a href="/#/mmswitcher" data-toggle="tab">mmswitcher</a></li>
+                            <li><a href="/#/mmTableSorter" data-toggle="tab">mmTableSorter</a></li>
+                            <li><a href="/#/mmtable" data-toggle="tab">mmtable</a></li>
+                            <li><a href="/#/mmTimeline" data-toggle="tab">mmTimeline</a></li>
+                            <li><a href="/#/mmTreeview" data-toggle="tab">mmTreeview</a></li>
+                            <li><a href="/#/PagerSource" data-toggle="tab">PagerSource</a></li>
+                            <li><a href="/#/mmlist" data-toggle="tab">mmList</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">inputs <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/#/knob" data-toggle="tab">knob</a></li>
+                            <li><a href="/#/mmDatepicker" data-toggle="tab">mmDatepicker</a></li>
+                            <li><a href="/#/mmHtml" data-toggle="tab">mmHtml</a></li>
+                            <li><a href="/#/mmLimiter" data-toggle="tab">maxlength</a></li>
+                            <li><a href="/#/mmMask" data-toggle="tab">mmMask</a></li>
+                            <li><a href="/#/mmRating" data-toggle="tab">mmRating</a></li>
+                            <li><a href="/#/mmSelect2" data-toggle="tab">mmSelect2</a></li>
+                            <li><a href="/#/mmswitcher" data-toggle="tab">mmswitcher</a></li>
+                            <li><a href="/#/mmTinymce" data-toggle="tab">mmTinymce</a></li>
+                            <li><a href="/#/timePicker" data-toggle="tab">Time Picker</a></li>
+                            <li><a href="/#/mmHttpGet" data-toggle="tab">Bootstrap X-Editable http://vitalets.github.io/x-editable/ </a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">others <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/#/mmLocalstorage" data-toggle="tab">mmLocalstorage</a></li>
+                            <li><a href="/#/mmHttpGet" data-toggle="tab">mmHttpGet</a></li>
+                        </ul>
+                    </li>
+
+
+
+
+
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/#/knob" data-toggle="tab">knob</a></li>
+                            <li class="active"><a href="/#/mmActionModal" data-toggle="tab">mmActionModal</a></li>
+                            <li><a href="/#/mmChart" data-toggle="tab">mmChart</a></li>
+                            <li><a href="/#/mmDatepicker" data-toggle="tab">mmDatepicker</a></li>
+                            <li><a href="/#/mmDropZone" data-toggle="tab">mmDropZone</a></li>
+                            <li><a href="/#/mmFileRead" data-toggle="tab">mmFileUploader</a></li>
+                            <li><a href="/#/mmFullcalendar" data-toggle="tab">mmFullcalendar</a></li>
+                            <li><a href="/#/mmHtml" data-toggle="tab">mmFullcalendar</a></li>
+                            <li><a href="/#/mmLimiter" data-toggle="tab">maxlength</a></li>
+                            <li><a href="/#/mmMap" data-toggle="tab">mmMap</a></li>
+                            <li><a href="/#/mmMask" data-toggle="tab">mmMask</a></li>
+                            <li><a href="/#/mmRating" data-toggle="tab">mmRating</a></li>
+                            <li><a href="/#/mmScroll" data-toggle="tab">mmScroll</a></li>
+                            <li><a href="/#/mmSelect2" data-toggle="tab">mmSelect2</a></li>
+                            <li><a href="/#/mmSelectionModal" data-toggle="tab">mmSelectionModal</a></li>
+                            <li><a href="/#/mmSelectionModalAjax" data-toggle="tab">mmSelectionModalAjax</a></li>
+                            <li><a href="/#/mmSortable" data-toggle="tab">mmSortable</a></li>
+                            <li><a href="/#/mmswitcher" data-toggle="tab">mmswitcher</a></li>
+                            <li><a href="/#/mmTableSorter" data-toggle="tab">mmTableSorter</a></li>
+                            <li><a href="/#/mmtable" data-toggle="tab">mmtable</a></li>
+                            <li><a href="/#/mmTimeline" data-toggle="tab">mmTimeline</a></li>
+                            <li><a href="/#/mmTinymce" data-toggle="tab">mmTinymce</a></li>
+                            <li><a href="/#/mmTreeview" data-toggle="tab">mmTreeview</a></li>
+                            <li><a href="/#/PagerSource" data-toggle="tab">PagerSource</a></li>
+                            <li><a href="/#/popover" data-toggle="tab">popover</a></li>
+                            <li><a href="/#/tooltip" data-toggle="tab">tooltip</a></li>
+                            <li><a href="/#/validationText" data-toggle="tab">validationText</a></li>
+                            <li><a href="/#/mmLocalstorage" data-toggle="tab">mmLocalstorage</a></li>
+                            <li><a href="/#/mmHttpGet" data-toggle="tab">mmHttpGet</a></li>
+                            <li><a href="/#/timePicker" data-toggle="tab">Time Picker</a></li>
+                            <li><a href="/#/mmwizard" data-toggle="tab">Wizard</a></li>
+                            <li><a href="/#/mmHttpGet" data-toggle="tab">Bootstrap X-Editable http://vitalets.github.io/x-editable/ </a></li>
+                            <li><a href="/#/mainMenuCommands" data-toggle="tab">Main Menu commands</a></li>
+                            <li><a href="/#/pageAlerts" data-toggle="tab">Page Alerts</a></li>
+                            <li><a href="/#/toastrAlerts" data-toggle="tab">Toastr Alerts</a></li>
+                            <li><a href="/#/modals" data-toggle="tab">Modals</a></li>
+                            <li><a href="/#/mmlist" data-toggle="tab">mmList</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                @await Html.PartialAsync("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2015 - MMDirectives.Web</p>
+        </footer>
+    </div>
+
+
+    <!--libraries:js-->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/jquery-ui/jquery-ui.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+   <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/lib/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="/lib/chartjs/chart.min.js"></script>
+    <script src="/lib/angles/angles.js"></script>
+    <script src="/lib/nprogress/nprogress.js"></script>
+    <script src="/lib/lodash/lodash.min.js"></script>
+    <script src="/lib/select2/select2.min.js"></script>
+    <!-- endinject -->
+    <!--directives:js-->
+    <script src="/Directives/src/Modules/AdataModule.js"></script>
+    <script src="/Directives/src/Modules/componentModule.js"></script>
+    <script src="/Directives/src/Modules/directivesModule.js"></script>
+    <script src="/Directives/src/directives/PagerSource.js"></script>
+    <script src="/Directives/src/directives/knob.js"></script>
+    <script src="/Directives/src/directives/mmActionModal.js"></script>
+    <script src="/Directives/src/directives/mmChart.js"></script>
+    <script src="/Directives/src/directives/mmDatepicker.js"></script>
+    <script src="/Directives/src/directives/mmDropZone.js"></script>
+    <script src="/Directives/src/directives/mmFileRead.js"></script>
+    <script src="/Directives/src/directives/mmFullcalendar.js"></script>
+    <script src="/Directives/src/directives/mmHtml.js"></script>
+    <script src="/Directives/src/directives/mmHttpGet.js"></script>
+    <script src="/Directives/src/directives/mmLimiter.js"></script>
+    <script src="/Directives/src/directives/mmList.js"></script>
+    <script src="/Directives/src/directives/mmLocalstorage.js"></script>
+    <script src="/Directives/src/directives/mmMap.js"></script>
+    <script src="/Directives/src/directives/mmMask.js"></script>
+    <script src="/Directives/src/directives/mmRating.js"></script>
+    <script src="/Directives/src/directives/mmScroll.js"></script>
+    <script src="/Directives/src/directives/mmSelect2.js"></script>
+    <script src="/Directives/src/directives/mmSelectionModal.js"></script>
+    <script src="/Directives/src/directives/mmSelectionModalAjax.js"></script>
+    <script src="/Directives/src/directives/mmSortable.js"></script>
+    <script src="/Directives/src/directives/mmTable.js"></script>
+    <script src="/Directives/src/directives/mmTableSorter.js"></script>
+    <script src="/Directives/src/directives/mmTimeline.js"></script>
+    <script src="/Directives/src/directives/mmTimepicker.js"></script>
+    <script src="/Directives/src/directives/mmTinymce.js"></script>
+    <script src="/Directives/src/directives/mmTreeview.js"></script>
+    <script src="/Directives/src/directives/mmValidator.js"></script>
+    <script src="/Directives/src/directives/mmWizard.js"></script>
+    <script src="/Directives/src/directives/mmswitcher.js"></script>
+    <script src="/Directives/src/directives/popover.js"></script>
+    <script src="/Directives/src/directives/themeSelector.js"></script>
+    <script src="/Directives/src/directives/tooltip.js"></script>
+    <script src="/Directives/src/Services/Alerts.js"></script>
+    <script src="/Directives/src/Services/GravatarService.js"></script>
+    <script src="/Directives/src/Services/MainMenu.js"></script>
+    <script src="/Directives/src/Services/notification.js"></script>
+    <script src="/Directives/src/Services/progressBar.js"></script>
+    <script src="/Directives/src/Services/themeSelectorService.js"></script>
+    <script src="/Directives/src/Services/dataServices/DataContext.js"></script>
+    <script src="/Directives/src/Services/dataServices/Storage.js"></script>
+    <script src="/Directives/src/Services/dataServices/dxProduct.js"></script>
+    <script src="/Directives/src/Services/dataServices/dxTest.js"></script>
+    <script src="/Directives/src/Services/dataServices/entitySet.js"></script>
+    <script src="/Directives/src/Services/dataServices/rottentService.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxBillOfMaterials.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxCulture.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxDocument.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxIllustration.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxLocation.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProduct.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductCategory.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductDescription.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductDocument.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductInventory.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductModel.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductPhoto.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductReview.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxProductSubcategory.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxScrapReason.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxTransactionHistory.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxUnitMeasure.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxWorkOrder.js"></script>
+    <script src="/Directives/src/Services/dataServices/ProductionDx/dxWorkOrderRouting.js"></script>
+    <script src="/Directives/src/Filters/bytes.js"></script>
+    <script src="/Directives/src/Filters/gravatarFilter.js"></script>
+    <script src="/Directives/src/Filters/momentFromNow.js"></script>
+    <script src="/Directives/src/Filters/noparents.js"></script>
+    <!-- endinject -->
+    <!--app:js-->
+    <script src="/App/DirectiveCtrl.js"></script>
+    <script src="/App/app.js"></script>
+    <script src="/App/Controllers/DirectiveCtrl.js"></script>
+    <!-- endinject -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<div class="row">
+    <div class="col-sm-12" ng-controller="angularcomp">
+        <div class=" panel panel-primary">
+            <div class=" panel-heading">
+                <div class="panel-heading-text">mmSelect2</div>
+            </div>
+            <div class="panel-body">
+                <!--#region mmSelect2  -->
+                <div class="tab-pane" id="mmSelect2" ng-init="mailto=[{'id':'mbortz@example.com','text':'mbortz@example.com'}];alltags=['a','b']">
+                    <div class="note note-info">
+                        <h2>restrict: 'A'</h2>
+
+                        <div class="well">
+                            very easy to use
+                            <br />
+                            1- create your select normally
+
+                            <pre class="ng-non-bindable">&lt;select class="form-control" ng-model="selectedListItem"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
+                            <br />
+                            2- test without Select2
+                            <br />
+                            3-  mm-select2="{ allowClear: true}">
+                            <br />
+
+                            <pre class="ng-non-bindable">&lt;select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
+
+                            <hr />
+
+                            if you want to be free on options use input instead adding tag to your mm-select2 is required (for now)
+                            <pre class="ng-non-bindable">&nbsp;&lt;input mm-select2="{&nbsp; tags: []}" class="form-control" name="to" id="mail-to" ng-model="mailto"&gt;</pre>
+
+                            if you want to provide pre-defined flexible options use mm-select2 tag array for variables
+                            <pre>&nbsp;&lt;input mm-select2="{&nbsp; tags: [{'id':'1','text':'1'},{'id':'2','text':'2'},]}" class="form-control" name="to" id="mail-to" ng-model="mailto"&gt;</pre>
+
+
+                        </div>
+                        <table class="table table-bordered">
+                            <thead><tr><td>Name</td><td>Type</td><td>Desciption</td></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>mm-select2</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>mm-select2="{ allowClear: true}"</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td> mm-select2="{  tags: [{'id':'1','text':'1'},{'id':'2','text':'2'},]}" </td>
+                                    <td></td>
+                                    <td>tags in input takes a list as options </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h6 class="text-light-gray text-semibold text-xs" style="margin:20px 0 10px 0;">SINGLE SELECT</h6>
+                    {{selectedListItem}}
+                    <select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}">
+                        <optgroup ng-repeat=" group in timezonelist" label="{{group.label}}">
+                            <option ng-repeat="item in group.cities" value="{{item.value}}">{{item.name}}</option>
+                        </optgroup>
+                    </select>
+                    <br />
+                    <pre class="ng-non-bindable">{{selectedListItem}}<br />&lt;select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
+
+                    <select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"></select>
+                    <pre class="ng-non-bindable">&lt;select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"&gt;&lt;/select&gt;</pre>
+                    <hr class="panel-wide">
+                    <h6 class="text-light-gray text-semibold text-xs" style="margin:20px 0 10px 0;">MULTISELECT</h6>
+                    {{selectedFirst}}
+                    <select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}">
+                        <optgroup ng-repeat=" group in timezonelist" label="{{group.label}}">
+                            <option ng-repeat="item in group.cities" value="{{item.value}}">{{item.name}}</option>
+                        </optgroup>
+                    </select>
+                    <pre class="ng-non-bindable">{{selectedFirst}}<br />&lt;select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
+                    <select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"></select>
+                    <pre class="ng-non-bindable">&lt;select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"&gt;&lt;/select&gt;</pre>
+                    <h6 class="text-light-gray text-semibold text-xs" style="margin:20px 0 10px 0;">On INPUT</h6>
+                    <h6>jquery throws an exception on IN and  Invalid operand to 'in': Object expected</h6>
+                    <h6>jquery throws an exception Syntax error, unrecognized expression: mbortz@example.com,asdasd</h6>
+                    <input mm-select2="{  tags: [{'id':'1','text':'1'},{'id':'2','text':'2'},]}" class="form-control" name="to" id="mail-to" ng-model="mailto">
+                    {{mailto}}
+                    <pre>mailto=[{'id':'mbortz@example.com','text':'mbortz@example.com'}];</pre>
+                    <pre class="ng-non-bindable">&nbsp;&lt;input mm-select2="{&nbsp; tags: [{'id':'1','text':'1'},{'id':'2','text':'2'},]}" class="form-control" name="to" id="mail-to" ng-model="mailto"&gt;</pre>
+                </div>
+                <!--#endregion -->
+            </div>
+        </div>
+    </div>
+</div>
