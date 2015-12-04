@@ -1,7 +1,7 @@
 ﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">mmSelectionModal</div>
             </div>
             <div class="panel-body">
@@ -73,9 +73,9 @@
                     <div class="form-group">
                         <label>ProductSubcategoryID</label>
                         <div class="input-group">
-                            <select class="form-control" ng-model="ProductSubcategoryID" data-ng-options="c.ProductSubcategoryID as c.Name  for c in subCategories" required></select>
+                            <select class="form-control" ng-model="vm.ProductSubcategoryID" data-ng-options="c.ProductSubcategoryID as c.Name  for c in vm.subCategories" required></select>
                             <div class="input-group-btn">
-                                <mm-selection-modal ng-model="ProductSubcategoryID" itemssource="subCategories" columns="['Name','CategoryName']" valuefield="ProductSubcategoryID" textfield="Name">
+                                <mm-selection-modal ng-model="vm.ProductSubcategoryID" itemssource="vm.subCategories" columns="['Name','CategoryName']" valuefield="ProductSubcategoryID" textfield="Name">
                                     <div class="filter-template">
                                         <div class="form-group"><input type="text" class="form-control" ng-model="filter.Name" placeholder="CompanyName"></div>
                                     </div>

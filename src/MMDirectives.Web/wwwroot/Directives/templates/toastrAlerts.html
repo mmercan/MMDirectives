@@ -1,7 +1,10 @@
-﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+﻿
+<link href="/lib/toastr/toastr.css" rel="stylesheet" />
+<script src="/lib/toastr/toastr.js"></script>
+<div class="row">
+    <div class="col-sm-12" >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">Angular Components</div>
             </div>
             <div class="panel-body">
@@ -76,13 +79,13 @@
                             <span class="panel-title">Toastr notifications</span>
                         </div>
                         <div class="panel-body buttons-with-margins">
-                            <button class="btn btn-block btn-info btn-lg" ng-click="notificationInfo()">Default</button>
+                            <button class="btn btn-block btn-info btn-lg" ng-click="vm.notificationInfo()">Default</button>
                             <pre>notificationService.info("<strong>Heads up! </strong> Dude", "<strong>Check this </strong> This alert needs your attention, but it's not super important.", { "closeButton": true, }); </pre>
-                            <button class="btn btn-block  btn-lg btn-danger" id="jq-growl-error" ng-click="notificationError()">Error</button>
+                            <button class="btn btn-block  btn-lg btn-danger" id="jq-growl-error" ng-click="vm.notificationError()">Error</button>
                             <pre>notificationService.error("<strong>Warning! </strong> something is Wrong","Best check yo self, you're not looking too good. Change a few things up and try submitting again."); </pre>
-                            <button class="btn btn-block  btn-lg  btn-success" id="jq-growl-notice" ng-click="notificationSuccess()">Notice</button>
+                            <button class="btn btn-block  btn-lg  btn-success" id="jq-growl-notice" ng-click="vm.notificationSuccess()">Notice</button>
                             <pre>notificationService.success("<strong>Well done! </strong> Mate", "<strong>Cool</strong> You successfully read this important alert message.");</pre>
-                            <button class="btn btn-block  btn-lg  btn-warning" id="jq-growl-warning" ng-click="notificationWarning()">Warning</button>
+                            <button class="btn btn-block  btn-lg  btn-warning" id="jq-growl-warning" ng-click="vm.notificationWarning()">Warning</button>
                             <pre>notificationService.warning("<strong>Warning! </strong>  Warning", "<strong>Warning! </strong> Best check yo self, you're not looking too good.", { "progressBar": true, "positionClass": "toast-top-left", "showDuration": "3000"});</pre>
                         </div>
                     </div>

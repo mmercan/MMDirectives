@@ -30,8 +30,12 @@
             if (options.animate) {                $alert.attr('data-animate', 'true');            }
             $box = $('#' + alertsContainerId);
             if (!$box.length) {
-                $box = $('<div id="' + alertsContainerId + '" />').prependTo($('#alert-wrapper'));
-            }
+                if ($('#alert-wrapper').length) {
+                    $box = $('<div id="' + alertsContainerId + '" />').prependTo($('#alert-wrapper'));
+                } else {
+                    $box = $('<div id="' + alertsContainerId + '" />').prependTo($('body'));
+                }
+            } 
             $alerts = $('#' + alertsContainerId + ' .' + options.namespace);
             height = $alert.css({
                 visibility: 'hidden',

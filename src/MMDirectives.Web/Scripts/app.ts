@@ -66,7 +66,7 @@ module app {
                 url: "/tooltip",
                 controller: "directiveCtrl",
                 controllerAs: "vm",
-                templateUrl: "/Directives/templates/tooltip",
+                templateUrl: "/Directives/templates/tooltip.html",
                 data: {
                     pageTitle: '',
                 }

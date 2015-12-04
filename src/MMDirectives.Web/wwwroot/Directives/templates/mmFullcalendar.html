@@ -1,4 +1,7 @@
-﻿<div class="row">
+﻿<link href="/lib/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet" />
+
+<script src="/lib/fullcalendar/dist/fullcalendar.js"></script>
+<div class="row">
     <div class="col-sm-12">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -9,7 +12,13 @@
                 <div class="tab-pane" id="mmFullcalendar">
                     <div class="note note-info">
                         <h2>restrict: 'A'</h2>
-                        <h2>JqueryUI required</h2>
+                        <!--<h2>JqueryUI required</h2>-->
+
+                        <div class="alert alert-danger">
+                            This directive is a <b>wrapper</b>.of Full Calendar which requires moment.js and Jquery :<a href="http://fullcalendar.io/" target="_blank">http://fullcalendar.io/</a>
+                        </div>
+
+
                         <table class="table table-bordered">
                             <thead><tr><td>Name</td><td>Type</td><td>Desciption</td></tr></thead>
                             <tbody>
@@ -71,16 +80,16 @@
                     </div>
                     <div class="well well-lg">
                         <div class="row">
-                            <div class=" col-sm-1"><img style="width:100%" ng-src="{{selectedevent.posters.detailed}}" /></div>
-                            <div class="col-sm-11" ng-show="selectedevent">
-                                {{selectedevent.title }} -- {{selectedevent.runtime}} minutes<span class="badge pull-right">{{selectedevent.mpaa_rating}}</span><br />
-                                {{selectedevent.synopsis }}
+                            <div class="col-sm-1"><img style="width:100%" ng-src="{{vm.selectedevent.posters.detailed}}" /></div>
+                            <div class="col-sm-11" ng-show="vm.selectedevent">
+                                {{vm.selectedevent.title }} -- {{vm.selectedevent.runtime}} minutes<span class="badge pull-right">{{vm.selectedevent.mpaa_rating}}</span><br />
+                                {{vm.selectedevent.synopsis }}
                             </div>
                             {{selecteddate}}
                         </div>
                     </div>
                     <input type="button" ng-click="CalendarRerender=true" class="btn" value="refresh View" />
-                    <div mm-fullcalendar selectedday="selectedDay" rerender="CalendarRerender" itemssource="events" selectedday="selectedDate" day-selected="calendarDayselected" selectedevent="selectedevent" start-param="release_dates" end-param="release_dates"></div>
+                    <div mm-fullcalendar selectedday="selectedDay" rerender="CalendarRerender" itemssource="vm.events" selectedday="vm.selectedDate" day-selected="calendarDayselected" selectedevent="vm.selectedevent" start-param="release_dates" end-param="release_dates"></div>
                     <h4>Html</h4>
                     <pre ng-non-bindable><p>&lt;div class="well well-lg"&gt;<br />&nbsp; &lt;div class="row"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;div class=" col-sm-1"&gt;&lt;img style="width:100%" ng-src="{{selectedevent.posters.detailed}}" /&gt;&lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;div class="col-sm-11" ng-show="selectedevent"&gt;<br />&nbsp;&nbsp;&nbsp; {{selectedevent.title }} -- {{selectedevent.runtime}} minutes&lt;span class="badge pull-right"&gt;{{selectedevent.mpaa_rating}}&lt;/span&gt;&lt;br /&gt;<br />&nbsp;&nbsp;&nbsp; {{selectedevent.synopsis }}<br />&nbsp; &lt;/div&gt;{{selecteddate}}&lt;/div&gt;<br />&lt;/div&gt;<br />&lt;input type="button" ng-click="refreshrender=true" class="btn" value="refresh View"/&gt;<br />&lt;div mm-fullcalendar selectedday="selectedDay" refreshrender="refreshrender" itemssource="events" selectedday="selectedDate" day-selected="calendarDayselected" selectedevent="selectedevent" start-param="release_dates" end-param="release_dates"&gt;&lt;/div&gt;</p> </pre>
                     <h4>Javascript</h4>

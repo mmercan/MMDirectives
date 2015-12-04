@@ -50,18 +50,21 @@
                         <pre>&lt;link href="~/Content/themes/base/all.css" rel="stylesheet" /&gt;</pre>
                        <b>if you don't want to use css files add well-lg class in to the div</b>
                     </div>
-                    <div class="dropzone well-lg" file-dropzone="[image/png, image/jpeg, image/gif]" files="images" data-max-file-size="3" file-added="fileAdded">
+                    <div class="dropzone well well-lg" file-dropzone="[image/png, image/jpeg, image/gif]" files="vm.images" data-max-file-size="3" file-added="vm.fileAdded">
                         <span>Drop Image Here</span>
                     </div>
-                    <div class="col-sm-3 thumbnail" style="position:relative;height:200px" ng-repeat="img in images">
+                    <div class="col-sm-3 thumbnail" style="position:relative;height:200px" ng-repeat="img in vm.images">
                         <img class="img-responsive" style="position:absolute;top:auto;bottom:auto;vertical-align:middle" ng-src={{img.file}} />
                     </div>
+                    <div class="row"></div>
                     <pre>
 //javascript
 $scope.images = [];
 $scope.fileAdded = function(img) { alert(img.fileName);};
                     </pre>
+                   
                     <pre>
+
                     <p>&lt;div class="dropzone  well-lg" file-dropzone="[image/png, image/jpeg, image/gif]" files="images" data-max-file-size="3" file-added="fileAdded"&gt;<br />&nbsp; &lt;span&gt;Drop Image Here&lt;/span&gt;<br />&lt;/div&gt;<br />&lt;div class="col-sm-3 thumbnail" style="position:relative;height:200px" ng-repeat="img in images"&gt;<br />&nbsp; &lt;img class="img-responsive" style="position:absolute;top:auto;bottom:auto;vertical-align:middle" ng-src={{img.file}} /&gt;<br />&lt;/div&gt;</p> 
                     </pre>
                 </div>

@@ -20,21 +20,38 @@
         assemblyTree: any[];
         workorderAndSales: any[];
         inventory: any[];
-        constructor(private $scope: ng.IScope, $http:any) {
+
+        addwarining: any;
+        adderror: any; 
+        addsuccess: any;
+        addprimary: any;
+        addwariningDark: any;
+        adderrorDark: any;
+    addsuccessDark:any;
+    addprimaryDark: any;
+    notificationSuccess: any;
+    notificationInfo: any;
+    notificationWarning: any;
+    notificationError: any;
+    makeSound: any;
+
+        images : any[];
+        fileAdded: any;
+        locations: any[];
+    constructor(private $scope: ng.IScope, $http: any, rottentService: any, alertService: any, notificationService:any) {
             this.title = "Matt";
 
 
 
 
             this.events = [];
-            //rottentService.moviesUpcomingCall().then(function (data) {
-            //    angular.forEach(data.movies, function (value, index) {
-            //        value.start = value.release_dates.theater;
-            //        value.end = value.release_dates.theater;
-            //    });
-            //    this.events = data.movies;
-
-            //});
+            rottentService.moviesUpcomingCall().then((data) =>{
+                angular.forEach(data.movies, function (value, index) {
+                    value.start = value.release_dates.theater;
+                    value.end = value.release_dates.theater;
+                });
+                this.events = data.movies;
+            });
 
 
             //window.setTimeout(function () {
@@ -82,33 +99,33 @@
 
 
           
-            //$scope.makeSound = function (sound) {
-            //    alertService.MakeSound(sound);
-            //}
+            this.makeSound = function (sound) {
+                alertService.MakeSound(sound);
+            }
 
-            //$scope.addwarining = function () {
-            //    alertService.MakeSound();
-            //    alertService.addMoveTop("<strong>Warning! </strong> Best check yo self, you're not looking too good.", null, "warning", 30);
-            //}
+            this.addwarining = function () {
+                alertService.MakeSound();
+                alertService.addMoveTop("<strong>Warning! </strong> Best check yo self, you're not looking too good.", null, "warning", 30);
+            }
 
-            //$scope.adderror = function () { alertService.addMoveTop("<strong>Warning! </strong> Best check yo self, you're not looking too good. Change a few things up and try submitting again.", null, "danger", 15); }
-            //$scope.addsuccess = function () { alertService.addMoveTop("<strong>Well done! </strong> You successfully read this important alert message.", null, "success"); }
-            //$scope.addprimary = function () { alertService.addMoveTop("<strong>Heads up! </strong> This alert needs your attention, but it's not super important.", null, "info"); }
-            //$scope.addwariningDark = function () { alertService.addMoveTopDark("<strong>Warning! </strong> Best check yo self, you're not looking too good.", null, "warning", 30); }
-            //$scope.adderrorDark = function () { alertService.addMoveTopDark("<strong>Oh snap! </strong> Change a few things up and try submitting again.", null, "danger", 15); }
-            //$scope.addsuccessDark = function () { alertService.addMoveTopDark("<strong>Well done! </strong> You successfully read this important alert message.", null, "success"); }
-            //$scope.addprimaryDark = function () { alertService.addMoveTopDark("<strong>Heads up! </strong> This alert needs your attention, but it's not super important.", null, "info"); }
+            this.adderror = function () { alertService.addMoveTop("<strong>Warning! </strong> Best check yo self, you're not looking too good. Change a few things up and try submitting again.", null, "danger", 15); }
+            this.addsuccess = function () { alertService.addMoveTop("<strong>Well done! </strong> You successfully read this important alert message.", null, "success"); }
+            this.addprimary = function () { alertService.addMoveTop("<strong>Heads up! </strong> This alert needs your attention, but it's not super important.", null, "info"); }
+            this.addwariningDark = function () { alertService.addMoveTopDark("<strong>Warning! </strong> Best check yo self, you're not looking too good.", null, "warning", 30); }
+            this.adderrorDark = function () { alertService.addMoveTopDark("<strong>Oh snap! </strong> Change a few things up and try submitting again.", null, "danger", 15); }
+            this.addsuccessDark = function () { alertService.addMoveTopDark("<strong>Well done! </strong> You successfully read this important alert message.", null, "success"); }
+            this.addprimaryDark = function () { alertService.addMoveTopDark("<strong>Heads up! </strong> This alert needs your attention, but it's not super important.", null, "info"); }
 
-            //$scope.notificationSuccess = function () { notificationService.success("<strong>Well done! </strong> Mate", "<strong>Cool</strong> You successfully read this important alert message."); };
-            //$scope.notificationInfo = function () { notificationService.info("<strong>Heads up! </strong> Dude", "<strong>Check this </strong> This alert needs your attention, but it's not super important.", { "closeButton": true, }); };
-            //$scope.notificationWarning = function () { notificationService.warning("<strong>Warning! </strong>  Warning", "<strong>Warning! </strong> Best check yo self, you're not looking too good.", { "progressBar": true, "positionClass": "toast-top-left", "showDuration": "3000" }); };
-            //$scope.notificationError = function () { notificationService.error("<strong>Warning! </strong> something is Wrong", "Best check yo self, you're not looking too good. Change a few things up and try submitting again."); };
+            this.notificationSuccess = function () { notificationService.success("<strong>Well done! </strong> Mate", "<strong>Cool</strong> You successfully read this important alert message."); };
+            this.notificationInfo = function () { notificationService.info("<strong>Heads up! </strong> Dude", "<strong>Check this </strong> This alert needs your attention, but it's not super important.", { "closeButton": true, }); };
+            this.notificationWarning = function () { notificationService.warning("<strong>Warning! </strong>  Warning", "<strong>Warning! </strong> Best check yo self, you're not looking too good.", { "progressBar": true, "positionClass": "toast-top-left", "showDuration": "3000" }); };
+            this.notificationError = function () { notificationService.error("<strong>Warning! </strong> something is Wrong", "Best check yo self, you're not looking too good. Change a few things up and try submitting again."); };
 
 
             //$scope.mydate = new Date();
             //$scope.counter = 0;
-            //$scope.images = [];
-            //$scope.fileAdded = function (img) { alert(img.fileName); };
+            this.images = [];
+            this.fileAdded = function (img) { alert(img.fileName); };
             //$scope.texthtml = '<p>$("#my-tabs").tabs({<br />&nbsp;&nbsp;&nbsp; activate: function(event, ui) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $("#calendar").fullCalendar("render");<br />&nbsp;&nbsp;&nbsp; }<br />});</p> ';
 
             //$scope.mapselected = {};
@@ -120,7 +137,7 @@
             //    if (e.target.innerText == "mmMap") {
             //        $scope.$apply(function () {
             //            $scope.maprerender = true;
-            //            $scope.locations = [{ "lat": 47.602546250550006, "lng": -122.3385245574342, "html": "Seattle Ferry <br>First Info Window", "label": "Marker One" }, { "lat": 50.12553355541376, "lng": 8.721551945007263, "html": "Frankfurt<br>Second Info Window", "label": "Marker Two" }, { "lat": -35.28174503025667, "lng": 149.1287201618652, "html": "Canberra London Circuit <br>Third Info Window", "label": "Marker Three" }];
+            //           
             //        });
             //    }
             //    if (e.target.innerText == "mmFullcalendar") {
@@ -129,6 +146,10 @@
             //        });
             //    }
             //});
+
+            this.locations = [{ "lat": 47.602546250550006, "lng": -122.3385245574342, "html": "Seattle Ferry <br>First Info Window", "label": "Marker One" }, { "lat": 50.12553355541376, "lng": 8.721551945007263, "html": "Frankfurt<br>Second Info Window", "label": "Marker Two" }, { "lat": -35.28174503025667, "lng": 149.1287201618652, "html": "Canberra London Circuit <br>Third Info Window", "label": "Marker Three" }];
+
+
 
             this.timezonelist = [
                 { label: "Alaskan/Hawaiian Time Zone", value: "HAV", cities: [{ value: "AK", name: "Alaska" }, { value: "HI", name: "Hawaii" }] },
@@ -221,5 +242,5 @@
         }
 
     }
-    angular.module("app").controller("directiveCtrl", ["$scope","$http", DirectiveCtrl]);
+    angular.module("app").controller("directiveCtrl", ["$scope", "$http", "rottentService", "alertService","notificationService", DirectiveCtrl]);
 }

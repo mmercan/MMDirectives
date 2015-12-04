@@ -70,3 +70,8 @@ gulp.task("inject", function () {
     .pipe(gulp.dest("Views/Shared"))
 
 });
+
+
+gulp.task("directive:Less", function () {
+    gulp.src("wwwroot/directives/src/less/directives.less").pipe(less()).pipe(gulp.dest("wwwroot/directives"));
+});
