@@ -54,7 +54,11 @@
                
                 setRating(options.rating);
                 
-                attrs.$observe('ngModel', function (value) { scope.$watch(value, function (newValue) { if (newValue) { setRating(newValue); } }); });
+                attrs.$observe('ngModel', function (value) {
+                    scope.$watch(value, function (newValue) {
+                        if (newValue) { setRating(newValue); }
+                    });
+                });
                 attrs.$observe('disabled', function (value) {
                     scope.$watch(value,
                         function(newValue) {

@@ -1,7 +1,7 @@
 ﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">PagerSource</div>
             </div>
             <div class="panel-body">
@@ -37,7 +37,7 @@
                         <div class="panel-heading">
                             <span class="panel-title"><i class="panel-title-icon fa fa-comment-o"></i>In Theaters {{currentPage}}</span>
                             <div class="panel-heading-controls pull-right">
-                                <ul pager-source itemssource='moviesInTheaters' results="pagedmoviesInTheaters" filter="moviesInTheatersfilter" class="pagination-xs pagination" ng-model="currentPage" items-per-page="5"></ul>
+                                <ul pager-source itemssource='vm.moviesInTheaters' results="pagedmoviesInTheaters" filter="moviesInTheatersfilter" class="pagination-xs pagination" ng-model="currentPage" items-per-page="5"></ul>
                                 <form action="" style="width:200px">
                                     <div class="input-group input-group-sm">
                                         <input type="text" class="form-control" ng-model="moviesInTheatersfilter.title" placeholder="Search..." name="s">

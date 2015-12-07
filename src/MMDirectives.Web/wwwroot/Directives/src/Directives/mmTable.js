@@ -265,15 +265,19 @@
                 var saveClickedHandler = null;
                 var deleteClickedHandler = null;
 
-                attrs.$observe('detailClicked', function (value) {
-                    if (value && scope[value] && angular.isFunction(scope[value])) { detailClickedHandler = scope[value]; }
-                });
-                attrs.$observe('saveClicked', function (value) {
-                    if (value && scope[value] && angular.isFunction(scope[value])) {saveClickedHandler = scope[value]; }
-                });
-                attrs.$observe('deleteClicked', function (value) {
-                    if (value && scope[value] && angular.isFunction(scope[value])) { deleteClickedHandler = scope[value];}
-                });
+                detailClickedHandler = $parse(attrs['detailClicked'], /* interceptorFn */ null, /* expensiveChecks */ true);
+                saveClickedHandler = $parse(attrs['saveClicked'], /* interceptorFn */ null, /* expensiveChecks */ true);
+                deleteClickedHandler = $parse(attrs['deleteClicked'], /* interceptorFn */ null, /* expensiveChecks */ true);
+
+                //attrs.$observe('detailClicked', function (value) {
+                //    if (value && scope[value] && angular.isFunction(scope[value])) { detailClickedHandler = scope[value]; }
+                //});
+                //attrs.$observe('saveClicked', function (value) {
+                //    if (value && scope[value] && angular.isFunction(scope[value])) {saveClickedHandler = scope[value]; }
+                //});
+                //attrs.$observe('deleteClicked', function (value) {
+                //    if (value && scope[value] && angular.isFunction(scope[value])) { deleteClickedHandler = scope[value];}
+                //});
                 if (editTemplate || detailTemplate || deleteTemplate) {
                     var actionModal = "<mm-action-modal selecteditem='mmtableselecteditem' calldetail='mmtablecalldetail' detail-clicked='mmtabledetailClicked'" +
                         "calledit='mmtablecalledit' save-clicked='mmtableSaveClicked' " + "calldelete='mmtablecalldelete' delete-clicked='mmtabledeleteClicked'>" +
@@ -285,17 +289,22 @@
                 childscope.mmtablebtnDetailItem = function (item) {
                     childscope.mmtableselecteditem = item;
                     childscope.mmtablecalldetail = true;
-                    if (detailClickedHandler) { detailClickedHandler(childscope.mmtableselecteditem); }
+                    if (detailClickedHandler && detailClickedHandler(scope) && angular.isFunction(detailClickedHandler(scope))) { detailClickedHandler(scope)(childscope.mmtableselecteditem); }
                 };
                 childscope.mmtablebtnSaveItem = function (item) {
                     childscope.originalitem = item;
                     childscope.mmtableselecteditem = angular.copy(item);
                     childscope.mmtablecalledit = true;
                 };
-                childscope.mmtableSaveClicked = function (item) {angular.copy(item, childscope.originalitem); if (saveClickedHandler) {saveClickedHandler(childscope.originalitem);}               };
+                childscope.mmtableSaveClicked = function (item) {
+                    angular.copy(item, childscope.originalitem);
+                    if (saveClickedHandler && saveClickedHandler(scope) && angular.isFunction(saveClickedHandler(scope))) { saveClickedHandler(scope)(childscope.originalitem); }
+                };
 
                 childscope.mmtablebtnDeleteItem = function (item) {childscope.mmtableselecteditem = item; childscope.mmtablecalldelete = true; };
-                childscope.mmtabledeleteClicked = function (item) {if (deleteClickedHandler) { deleteClickedHandler(item);}};
+                childscope.mmtabledeleteClicked = function (item) {
+                    if (deleteClickedHandler && deleteClickedHandler(scope) && angular.isFunction(deleteClickedHandler(scope))) { deleteClickedHandler(scope)(item); }
+                };
 
 
                 element.bind("keydown keypress", function (event) {

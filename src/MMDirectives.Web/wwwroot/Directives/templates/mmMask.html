@@ -1,5 +1,6 @@
-﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
+﻿
+<div class="row">
+    <div class="col-sm-12">
         <div class=" panel panel-primary">
             <div class=" panel-heading">
                 <div class="panel-heading-text">mmMask</div>
@@ -9,7 +10,7 @@
                 <div class="tab-pane" id="mmMask">
                     <div class="note note-info">
                         <h2>restrict: 'A'</h2>
-                        <h2>jquery.maskedinput Required</h2>
+                        <h2>wrapper around http://digitalbush.com/projects/masked-input-plugin/ (file included)</h2>
                         <table class="table table-bordered">
                             <thead><tr><td>Name</td><td>Type</td><td>Desciption</td></tr></thead>
                             <tbody>
@@ -23,7 +24,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <input type="text" placeholder="Date: 99/99/9999" mm-mask="99/99/9999" ng-model="mydate  " class="form-control form-group-margin" id="masked-inputs-examples-date" />
+                    <input type="text" placeholder="Date: 99/99/9999" mm-mask="99/99/9999" ng-model="vm.mydate  " class="form-control form-group-margin" id="masked-inputs-examples-date" />
                     <pre>&lt;input type="text" placeholder="Date: 99/99/9999" mm-mask="99/99/9999" ng-model="mydate&nbsp; | date:'dd/MM/yyyy'" class="form-control form-group-margin" id="masked-inputs-examples-date"&gt;</pre>
                     <br />
                     <input type="text" placeholder="SSN: 999-99-9999" mm-mask="999-99-9999" ng-model="mydate1" class=" form-control form-group-margin" id="masked-inputs-examples-ssn" />

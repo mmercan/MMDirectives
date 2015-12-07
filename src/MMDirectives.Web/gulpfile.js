@@ -1,4 +1,8 @@
-﻿/// <binding Clean='clean' />
+﻿/// <reference path="wwwroot/lib/moment/min/moment.min.js" />
+/// <reference path="wwwroot/lib/moment/min/moment.min.js" />
+/// <reference path="wwwroot/lib/moment/min/moment.min.js" />
+/// <reference path="wwwroot/lib/moment/min/moment.min.js" />
+/// <binding Clean='clean' />
 "use strict";
 
 var gulp = require("gulp"),
@@ -52,7 +56,7 @@ gulp.task("min", ["min:js", "min:css"]);
 
 var AppFiles = ["wwwroot/App/*.js", "wwwroot/App/**/*.js"];
 var directiveJsFiles = ["wwwroot/Directives/src/Modules/*.js", "wwwroot/Directives/src/directives/*.js", "wwwroot/Directives/src/Services/**/*.js", "wwwroot/Directives/src/Filters/**/*.js", "wwwroot/Directives/src/Controllers/*.js"];
-var libjs = ["wwwroot/lib/jquery/dist/jquery.min.js", "wwwroot/lib/jquery-ui/jquery-ui.js", "wwwroot/lib/angular/angular.min.js", "wwwroot/lib/angular-ui-router/release/angular-ui-router.min.js", "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js", "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js", "wwwroot/lib/metisMenu/dist/metisMenu.min.js"
+var libjs = ["wwwroot/lib/jquery/dist/jquery.min.js", "wwwroot/lib/moment/min/moment.min.js", "wwwroot/lib/jquery-ui/jquery-ui.js", "wwwroot/lib/angular/angular.min.js", "wwwroot/lib/angular-ui-router/release/angular-ui-router.min.js", "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js", "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js", "wwwroot/lib/metisMenu/dist/metisMenu.min.js"
 , "wwwroot/lib/chartjs/chart.min.js", "wwwroot/lib/angles/angles.js", "wwwroot/lib/nprogress/nprogress.js", "wwwroot/lib/lodash/lodash.min.js", "wwwroot/lib/select2/select2.min.js"
 ]
 

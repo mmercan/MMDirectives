@@ -1,12 +1,17 @@
-﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+﻿<link href="/lib/select2/select2.css" rel="stylesheet" />
+<link href="/lib/select2/select2-bootstrap.css" rel="stylesheet" />
+<script src="/lib/select2/select2.min.js"></script>
+
+
+<div class="row">
+    <div class="col-sm-12" >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">mmSelect2</div>
             </div>
             <div class="panel-body">
                 <!--#region mmSelect2  -->
-                <div class="tab-pane" id="mmSelect2" ng-init="mailto=[{'id':'mbortz@example.com','text':'mbortz@example.com'}];alltags=['a','b']">
+                <div class="tab-pane" id="mmSelect2" ng-init="vm.mailto=[{'id':'mbortz@example.com','text':'mbortz@example.com'}];vm.alltags=['a','b']">
                     <div class="note note-info">
                         <h2>restrict: 'A'</h2>
 
@@ -57,27 +62,28 @@
                     </div>
 
                     <h6 class="text-light-gray text-semibold text-xs" style="margin:20px 0 10px 0;">SINGLE SELECT</h6>
-                    {{selectedListItem}}
-                    <select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}">
-                        <optgroup ng-repeat=" group in timezonelist" label="{{group.label}}">
+                    {{vm.selectedListItem}}
+                    <select class="form-control" ng-model="vm.selectedListItem" mm-select2="{ allowClear: true}">
+                        <optgroup ng-repeat="group in vm.timezonelist" label="{{group.label}}">
                             <option ng-repeat="item in group.cities" value="{{item.value}}">{{item.name}}</option>
                         </optgroup>
                     </select>
                     <br />
-                    <pre class="ng-non-bindable">{{selectedListItem}}<br />&lt;select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
+                    <pre class="ng-non-bindable">{{vm.selectedListItem}}<br />&lt;select class="form-control" ng-model="vm.selectedListItem" mm-select2="{ allowClear: true}"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in vm.timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
 
-                    <select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"></select>
-                    <pre class="ng-non-bindable">&lt;select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"&gt;&lt;/select&gt;</pre>
+                    <select class="form-control" ng-model="vm.selectedListItem" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in vm.timezonelist"></select>
+
+                    <pre class="ng-non-bindable">&lt;select class="form-control" ng-model="selectedListItem" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in vm.timezonelist"&gt;&lt;/select&gt;</pre>
                     <hr class="panel-wide">
                     <h6 class="text-light-gray text-semibold text-xs" style="margin:20px 0 10px 0;">MULTISELECT</h6>
-                    {{selectedFirst}}
-                    <select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}">
-                        <optgroup ng-repeat=" group in timezonelist" label="{{group.label}}">
+                    {{vm.selectedFirst}}
+                    <select multiple="multiple" class="form-control" ng-model="vm.selectedFirst" mm-select2="{ allowClear: true}">
+                        <optgroup ng-repeat="group in vm.timezonelist" label="{{group.label}}">
                             <option ng-repeat="item in group.cities" value="{{item.value}}">{{item.name}}</option>
                         </optgroup>
                     </select>
                     <pre class="ng-non-bindable">{{selectedFirst}}<br />&lt;select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}"&gt;<br />&nbsp; &lt;optgroup ng-repeat=" group in timezonelist" label="{{group.label}}"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;option ng-repeat="item in group.cities" value="{{item.value}}"&gt;{{item.name}}&lt;/option&gt;<br />&nbsp; &lt;/optgroup&gt;<br />&lt;/select&gt;</pre>
-                    <select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"></select>
+                    <select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in vm.timezonelist"></select>
                     <pre class="ng-non-bindable">&lt;select multiple="multiple" class="form-control" ng-model="selectedFirst" mm-select2="{ allowClear: true}" ng-options="cat.value as cat.label for cat in timezonelist"&gt;&lt;/select&gt;</pre>
                     <h6 class="text-light-gray text-semibold text-xs" style="margin:20px 0 10px 0;">On INPUT</h6>
                     <h6>jquery throws an exception on IN and  Invalid operand to 'in': Object expected</h6>

@@ -1,7 +1,7 @@
 ﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">mmTableSorter</div>
             </div>
             <div class="panel-body">
@@ -40,9 +40,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <table class="table" mm-table-sorter columns="['title', 'due', 'completed', 'order', 'priority']" sort="sort" descending="descending"></table>
+                    <table class="table" mm-table-sorter columns="['title', 'due', 'completed', 'order', 'priority']" sort="vm.sort" descending="vm.descending"></table>
                     <ul class="list-unstyled">
-                        <li class="col-sm-4" data-ng-repeat="task in tasks | filter:cache.filter |orderBy:sort:descending">
+                        <li class="col-sm-4" data-ng-repeat="task in vm.tasks | filter:cache.filter |orderBy:vm.sort:vm.descending">
                             <a>
                                 <div style="position: relative; height: 80px" class="alert alert-success">
                                     <i class="fa fa-tasks fa-2x" style="color: #428bca"></i>

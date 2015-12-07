@@ -1,7 +1,7 @@
 ﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">mmTreeview</div>
             </div>
             <div class="panel-body">
@@ -71,11 +71,11 @@
                     <div class="panel tree-view">
                         <div class="panel-heading"><span class="panel-title"><i class="panel-title-icon fa fa-comment"></i>mmTreeview directive </span></div>
                         <div class="panel-body">
-                            <mm-treeview itemssource="assemblyTree" ng-model="treeselecteditem" selected-id="selectidid" nullvalue="productID" selectedtext="selectedText" idfield="ComponentID" textfield="ComponentName" parentfield="ProductAssemblyID"></mm-treeview>
+                            <mm-treeview itemssource="vm.assemblyTree" ng-model="vm.treeselecteditem" selected-id="vm.selectidid" nullvalue="vm.productID" selectedtext="selectedText" idfield="ComponentID" textfield="ComponentName" parentfield="ProductAssemblyID"></mm-treeview>
                         </div>
                     </div>
                     <p>&lt;div class="well"&gt;<br />{{treeselecteditem.ProductAssembly}} = {{treeselecteditem.ComponentName}} X {{treeselecteditem.PerAssemblyQty}}<br />&lt;/div&gt;</p>
-                    <pre>&lt;mm-treeview itemssource="assemblyTree" ng-model="treeselecteditem" selected-id="selectidid" nullvalue="productID" selectedtext="selectedText" idfield="ComponentID" textfield="ComponentName" parentfield="ProductAssemblyID"&gt;&lt;/mm-treeview&gt;</pre>
+                    <pre>&lt;mm-treeview itemssource="vm.assemblyTree" ng-model="treeselecteditem" selected-id="selectidid" nullvalue="productID" selectedtext="selectedText" idfield="ComponentID" textfield="ComponentName" parentfield="ProductAssemblyID"&gt;&lt;/mm-treeview&gt;</pre>
                     <div class="panel tree-view">
                         <div class="panel-heading"><span class="panel-title"><i class="panel-title-icon fa fa-comment"></i>Not A directive only recursive Tecnique </span></div>
                         <div class="panel-body">
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="tree" ng-repeat="comment in comment.comments" ng-include="'categoryTree'"></div>
                             </script>
-                            <div class="tree" ng-repeat="comment in comments" ng-include="'categoryTree'"></div>
+                            <div class="tree" ng-repeat="comment in vm.comments" ng-include="'categoryTree'"></div>
                         </div>
                         <div class="panel-footer clearfix">
                             <div class="tree-node-add">

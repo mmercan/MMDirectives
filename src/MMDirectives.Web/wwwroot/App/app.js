@@ -164,15 +164,8 @@ var app;
             data: {
                 pageTitle: '',
             }
-        }).state('mmswitcher', {
-            url: "/mmswitcher",
-            controller: "directiveCtrl",
-            controllerAs: "vm",
-            templateUrl: "/Directives/templates/mmswitcher.html",
-            data: {
-                pageTitle: '',
-            }
-        }).state('mmTableSorter', {
+        })
+            .state('mmTableSorter', {
             url: "/mmTableSorter",
             controller: "directiveCtrl",
             controllerAs: "vm",
@@ -220,82 +213,105 @@ var app;
             data: {
                 pageTitle: '',
             }
+        })
+            .state('knob', {
+            url: "/knob",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/knob.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmDatepicker', {
+            url: "/mmDatepicker",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmDatepicker.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmHtml', {
+            url: "/mmHtml",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmHtml.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmLimiter', {
+            url: "/mmLimiter",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmLimiter.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmMask', {
+            url: "/mmMask",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmMask.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmRating', {
+            url: "/mmRating",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmRating.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmSelect2', {
+            url: "/mmSelect2",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmSelect2.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmswitcher', {
+            url: "/mmswitcher",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmswitcher.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmTinymce', {
+            url: "/mmTinymce",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmTinymce.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('timePicker', {
+            url: "/timePicker",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/timePicker.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmHttpGet', {
+            url: "/mmHttpGet",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmHttpGet.html",
+            data: {
+                pageTitle: '',
+            }
+        }).state('mmLocalstorage', {
+            url: "/mmLocalstorage",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmLocalstorage.html",
+            data: {
+                pageTitle: '',
+            }
         });
-        //.state('', {
-        //    url: "/",
-        //    controller: "directiveCtrl",
-        //    controllerAs: "vm",
-        //    templateUrl: "/Directives/templates/",
-        //    data: {
-        //        pageTitle: '',
-        //    }
-        //})
-        //< li class="dropdown" >
-        //<a class="dropdown-toggle" data- toggle="dropdown" role= "button" aria- expanded="false" > inputs < span class="caret" > </span></a>
-        //<ul class="dropdown-menu" role= "menu" >
-        //<li><a href="#knob" data- toggle="tab" > knob < /a></li >
-        //<li><a href="#mmDatepicker" data- toggle="tab" > mmDatepicker < /a></li >
-        //<li><a href="#mmHtml" data- toggle="tab" > mmHtml < /a></li >
-        //<li><a href="#mmLimiter" data- toggle="tab" > maxlength < /a></li >
-        //<li><a href="#mmMask" data- toggle="tab" > mmMask < /a></li >
-        //<li><a href="#mmRating" data- toggle="tab" > mmRating < /a></li >
-        //<li><a href="#mmSelect2" data- toggle="tab" > mmSelect2 < /a></li >
-        //<li><a href="#mmswitcher" data- toggle="tab" > mmswitcher < /a></li >
-        //<li><a href="#mmTinymce" data- toggle="tab" > mmTinymce < /a></li >
-        //<li><a href="#timePicker" data- toggle="tab" > Time Picker< /a></li >
-        //<li><a href="#mmHttpGet" data- toggle="tab" > Bootstrap X- Editable http://vitalets.github.io/x-editable/ </a></li>
-        //</ul>
-        //< /li>
-        //< li class="dropdown" >
-        //<a class="dropdown-toggle" data- toggle="dropdown" role= "button" aria- expanded="false" > others < span class="caret" > </span></a>
-        //<ul class="dropdown-menu" role= "menu" >
-        //<li><a href="#mmLocalstorage" data- toggle="tab" > mmLocalstorage < /a></li >
-        //<li><a href="#mmHttpGet" data- toggle="tab" > mmHttpGet < /a></li >
-        //</ul>
-        //< /li>
-        //< li class="dropdown" >
-        //<a class="dropdown-toggle" data- toggle="dropdown" role= "button" aria- expanded="false" > Dropdown < span class="caret" > </span></a>
-        //<ul class="dropdown-menu" role= "menu" >
-        //<li><a href="#knob" data- toggle="tab" > knob < /a></li >
-        //<li><a href="#mmActionModal" data- toggle="tab" > mmActionModal < /a></li >
-        //<li><a href="#mmChart" data- toggle="tab" > mmChart < /a></li >
-        //<li><a href="#mmDatepicker" data- toggle="tab" > mmDatepicker < /a></li >
-        //<li><a href="#mmDropZone" data- toggle="tab" > mmDropZone < /a></li >
-        //<li><a href="#mmFileRead" data- toggle="tab" > mmFileUploader < /a></li >
-        //<li><a href="#mmFullcalendar" data- toggle="tab" > mmFullcalendar < /a></li >
-        //<li><a href="#mmHtml" data- toggle="tab" > mmFullcalendar < /a></li >
-        //<li><a href="#mmLimiter" data- toggle="tab" > maxlength < /a></li >
-        //<li><a href="#mmMap" data- toggle="tab" > mmMap < /a></li >
-        //<li><a href="#mmMask" data- toggle="tab" > mmMask < /a></li >
-        //<li><a href="#mmRating" data- toggle="tab" > mmRating < /a></li >
-        //<li><a href="#mmScroll" data- toggle="tab" > mmScroll < /a></li >
-        //<li><a href="#mmSelect2" data- toggle="tab" > mmSelect2 < /a></li >
-        //<li><a href="#mmSelectionModal" data- toggle="tab" > mmSelectionModal < /a></li >
-        //<li><a href="#mmSelectionModalAjax" data- toggle="tab" > mmSelectionModalAjax < /a></li >
-        //<li><a href="#mmSortable" data- toggle="tab" > mmSortable < /a></li >
-        //<li><a href="#mmswitcher" data- toggle="tab" > mmswitcher < /a></li >
-        //<li><a href="#mmTableSorter" data- toggle="tab" > mmTableSorter < /a></li >
-        //<li><a href="#mmtable" data- toggle="tab" > mmtable < /a></li >
-        //<li><a href="#mmTimeline" data- toggle="tab" > mmTimeline < /a></li >
-        //<li><a href="#mmTinymce" data- toggle="tab" > mmTinymce < /a></li >
-        //<li><a href="#mmTreeview" data- toggle="tab" > mmTreeview < /a></li >
-        //<li><a href="#PagerSource" data- toggle="tab" > PagerSource < /a></li >
-        //<li><a href="#popover" data- toggle="tab" > popover < /a></li >
-        //<li><a href="#tooltip" data- toggle="tab" > tooltip < /a></li >
-        //<li><a href="#validationText" data- toggle="tab" > validationText < /a></li >
-        //<li><a href="#mmLocalstorage" data- toggle="tab" > mmLocalstorage < /a></li >
-        //<li><a href="#mmHttpGet" data- toggle="tab" > mmHttpGet < /a></li >
-        //<li><a href="#timePicker" data- toggle="tab" > Time Picker< /a></li >
-        //<li><a href="#mmwizard" data- toggle="tab" > Wizard < /a></li >
-        //<li><a href="#mmHttpGet" data- toggle="tab" > Bootstrap X- Editable http://vitalets.github.io/x-editable/ </a></li>
-        //<li><a href="#mainMenuCommands" data- toggle="tab" > Main Menu commands< /a></li >
-        //<li><a href="#pageAlerts" data- toggle="tab" > Page Alerts< /a></li >
-        //<li><a href="#toastrAlerts" data- toggle="tab" > Toastr Alerts< /a></li >
-        //<li><a href="#modals" data- toggle="tab" > Modals < /a></li >
-        //<li><a href="#mmlist" data- toggle="tab" > mmList < /a></li >
-        //</ul>
-        //< /li>
-        //< /ul>
+        //<li><a href="#" data- toggle="tab" > Bootstrap X- Editable http://vitalets.github.io/x-editable/ </a></li>
     }
     angular.module("app", ["directives", "component", "data", 'ui.router', 'ui.bootstrap',])
         .config(configState)

@@ -1,7 +1,7 @@
 ﻿<div class="row">
-    <div class="col-sm-12" ng-controller="angularcomp">
-        <div class=" panel panel-primary">
-            <div class=" panel-heading">
+    <div class="col-sm-12" >
+        <div class="panel panel-primary">
+            <div class="panel-heading">
                 <div class="panel-heading-text">mmSortable</div>
             </div>
             <div class="panel-body">
@@ -37,8 +37,8 @@
                     </div>
                     <div class="panel list-style">
                         <div class="panel-heading"><span class="panel-title"><i class="panel-title-icon fa fa-tasks"></i>Move From Arrow</span>                        </div>
-                        <div class="panel-body mmSortable" itemssource="tasks" orderfield="order" handle=".fa-arrows-v">
-                            <div ng-repeat=" item in tasks" class="task" ng-class="{completed:item.completed}">
+                        <div class="panel-body mmSortable" itemssource="vm.tasks" orderfield="order" handle=".fa-arrows-v">
+                            <div ng-repeat="item in vm.tasks" class="task" ng-class="{completed:item.completed}">
                                 <span ng-show="item.priority=='high'" class="label label-warning pull-right">High - {{item.order}}</span>
                                 <span ng-show="item.priority=='low'" class="label pull-right">Low - {{item.order}}</span>
                                 <span class="pull-right">{{item.order}}</span>
@@ -55,8 +55,8 @@
                     <hr />
                     <div class="panel  list-style">
                         <div class="panel-heading"><span class="panel-title"><i class="panel-title-icon fa fa-tasks"></i>Tasks order the Column</span>                        </div>
-                        <div class="panel-body mmSortable" itemssource="tasks" orderfield="order">
-                            <div ng-repeat=" item in tasks" class="task" ng-class="{completed:item.completed}">
+                        <div class="panel-body mmSortable" itemssource="vm.tasks" orderfield="order">
+                            <div ng-repeat="item in vm.tasks" class="task" ng-class="{completed:item.completed}">
                                 <span ng-show="item.priority=='high'" class="label label-warning pull-right">High - {{item.order}}</span>
                                 <span ng-show="item.priority=='low'" class="label pull-right">Low - {{item.order}}</span>
                                 <span class="pull-right">{{item.order}}</span>
@@ -74,8 +74,8 @@
                         <div class="panel-heading">
                             <span class="panel-title"><i class="panel-title-icon fa fa-tasks"></i>Tasks order list position</span>
                         </div>
-                        <div class="panel-body mmSortable" itemssource="tasks">
-                            <div ng-repeat=" item in tasks" class="task" ng-class="{completed:item.completed}">
+                        <div class="panel-body mmSortable" itemssource="vm.tasks">
+                            <div ng-repeat=" item in vm.tasks" class="task" ng-class="{completed:item.completed}">
                                 <span ng-show="item.priority=='high'" class="label label-warning pull-right">High</span><span ng-show="item.priority=='low'" class="label pull-right">Low</span>
                                 <div class="fa fa-arrows-v task-sort-icon"></div>
                                 <div class="action-checkbox">

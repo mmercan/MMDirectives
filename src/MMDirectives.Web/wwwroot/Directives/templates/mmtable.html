@@ -107,16 +107,16 @@
                             </tbody>
                         </table>
                     </div>
-                    <input ng-model="USRfilter.email" type="text" class="form-control" />
-                    <div class="well">Selected User : {{selectedUSR.email}}</div>
-                    <div mm-table="usr in vm.users" selecteditem="selectedUSR"></div>
+                    <input ng-model="vm.USRfilter.email" type="text" class="form-control" />
+                    <div class="well">Selected User : {{vm.selectedUSR.email}}</div>
+                    <div mm-table="usr in vm.users"  selecteditem="vm.selectedUSR"></div>
                     <div>Blah</div>
                     <pre>&lt;div  mm-table="user in users"&gt;&lt;/div&gt;</pre>
-                    <div mm-table="user in users" idfield="username" columns="['id','username','fullname','email']" selecteditem="selectedUSR"></div>
+                    <div mm-table="user in vm.users" idfield="username" columns="['id','username','fullname','email']" selecteditem="vm.selectedUSR"></div>
                     <pre>&lt;div mm-table="user in users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/div&gt;</pre>
                     <mm-table itemssource="users" idfield="username" columns="usercolumns"></mm-table>
                     <pre>&lt;mm-table itemssource="users" idfield="username" columns="usercolumns"&gt;&lt;/mm-table&gt;</pre>
-                    <mm-table itemssource="users" selecteditem="selectedUser" filter="USRfilter" columns="['id','username','fullname','email']">
+                    <mm-table itemssource="vm.users" selecteditem="vm.selectedUser" filter="vm.USRfilter" columns="['id','username','fullname','email']">
                         <table class="data-template">
                             <td>{{item.id}}</td>
                             <td>
@@ -127,9 +127,9 @@
                             <td></td>
                         </table>
                     </mm-table>
-                    <div class="well">Selected User : {{selectedUser.email}}</div>
+                    <div class="well">Selected User : {{vm.selectedUser.email}}</div>
                     <pre ng-non-bindable>&lt;mm-table itemssource="users" columns="['id','username','fullname','email']"&gt;<br />&nbsp; &lt;table class=" data-template"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;{{item.id}}&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;img ng-src="{{item.email|gravatarfilter}}" alt="" style="width:26px;height:26px;" class="rounded"&gt;&amp;nbsp;&amp;nbsp;&lt;a href="#" title=""&gt;{{item.username}}&lt;/a&gt;&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;{{item.fullname}}&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;{{item.email}}&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;/td&gt;<br />&nbsp; &lt;/table&gt;<br />&lt;/mm-table&gt;<br />&lt;div class="well"&gt;Selected User : {{selectedUser.email}}&lt;/div&gt;</pre>
-                    <mm-table itemssource="users" selecteditem="selectedUser" columns="['id','username','fullname','email']">
+                    <mm-table itemssource="vm.users" selecteditem="vm.selectedUser" columns="['id','username','fullname','email']">
                         <div class="detail-template">
                             <form role="form">
                                 <div class="form-group">
@@ -171,10 +171,10 @@
                             </form>
                         </div>
                     </mm-table>
-                    <div class="well">Selected User : {{selectedUser.email}}</div>
+                    <div class="well">Selected User : {{vm.selectedUser.email}}</div>
                     <pre ng-non-bindable> <p>&lt;mm-table itemssource="users" selecteditem="selectedUser" columns="['id','username','fullname','email']"&gt;<br />&nbsp; &lt;div class="detail-template"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;form role="form"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;username&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.username" placeholder="username"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;fullname&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.fullname" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;email&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.email" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/form&gt;<br />&nbsp; &lt;/div&gt;</p> <p>&nbsp; &lt;div class="edit-template"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;form role="form"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;username&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.username" placeholder="username"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;fullname&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.fullname" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;email&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.email" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/form&gt;<br />&nbsp; &lt;/div&gt;</p> <p>&nbsp; &lt;div class="delete-template"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;form role="form"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;username&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.username" placeholder="username"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;fullname&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.fullname" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;email&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.email" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/form&gt;<br />&nbsp; &lt;/div&gt;<br />&lt;/mm-table&gt;<br />&lt;div class="well"&gt;Selected User : {{selectedUser.email}}&lt;/div&gt;</p> </pre>
 
-                    <mm-table itemssource="users" selecteditem="selectedUser" columns="['id','username','fullname','email']" detail-clicked="detailClicked" save-clicked="saveClicked" delete-clicked="deleteClicked">
+                    <mm-table itemssource="vm.users" selecteditem="vm.selectedUser" columns="['id','username','fullname','email']" detail-clicked="vm.detailClicked" save-clicked="vm.saveClicked" delete-clicked="vm.deleteClicked">
                         <table class="data-template">
                             <td>{{item.id}}</td>
                             <td><img ng-src="{{item.email|gravatarfilter}}" alt="" style="width:26px;height:26px;" class="rounded">&nbsp;&nbsp;<a href="#" title="">{{item.username}}</a></td>
@@ -221,24 +221,24 @@
                             </form>
                         </div>
                     </mm-table>
-                    <div class="well">Selected User : {{selectedUser.email}}</div>
+                    <div class="well">Selected User : {{vm.selectedUser.email}}</div>
                     <pre ng-non-bindable> <p>&lt;mm-table itemssource="users" selecteditem="selectedUser" columns="['id','username','fullname','email']"&gt;<br />&nbsp; &lt;table class="data-template"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;{{item.id}}&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;&lt;img ng-src="{{item.email|gravatarfilter}}" alt="" style="width:26px;height:26px;" class="rounded"&gt;&amp;nbsp;&amp;nbsp;&lt;a href="#" title=""&gt;{{item.username}}&lt;/a&gt;&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;{{item.fullname}}&lt;/td&gt;<br />&nbsp;&nbsp;&nbsp; &lt;td&gt;{{item.email}}&lt;/td&gt;<br />&nbsp; &lt;/table&gt;</p> <p>&nbsp; &lt;div class="detail-template"&gt;<br />&nbsp;&nbsp;&nbsp; &lt;form role="form"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;username&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.username" placeholder="username"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;fullname&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.fullname" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;email&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.email" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/form&gt;<br />&nbsp; &lt;/div&gt;</p> <p>&nbsp; &lt;div class="edit-template"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp; &lt;form role="form"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;username&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.username" placeholder="username"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;fullname&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.fullname" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;email&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.email" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/form&gt;<br />&nbsp; &lt;/div&gt;</p> <p>&nbsp; &lt;div class="delete-template"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp; &lt;form role="form"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;username&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.username" placeholder="username"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;fullname&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.fullname" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="form-group"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;label&gt;email&lt;/label&gt;&lt;input type="text" class="form-control" ng-model="item.email" placeholder="fullname"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/form&gt;<br />&nbsp; &lt;/div&gt;<br />&lt;/mm-table&gt;<br />&lt;div class="well"&gt;Selected User : {{selectedUser.email}}&lt;/div&gt;</p></pre>
                     <div class="row">
                         <div class="col-sm-6">
-                            <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                            <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                             <pre>&lt;mm-table <b style="color:navy">class="table-bordered"</b> itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;</pre>
                         </div>
                         <div class="col-sm-6">
-                            <mm-table table-class="table-striped" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                            <mm-table table-class="table-striped" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                             <pre>&lt;mm-table <b style="color:navy">class="table-striped"</b> itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;</pre>
                         </div>
                     </div><div class="row">
                         <div class="col-sm-6">
-                            <mm-table table-class="table-hover" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                            <mm-table table-class="table-hover" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                             <pre>&lt;mm-table <b style="color:navy">class="table-hover"</b> itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;</pre>
                         </div>
                         <div class="col-sm-6">
-                            <mm-table table-class="table-condensed" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                            <mm-table table-class="table-condensed" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                             <pre>&lt;mm-table <b style="color:navy">class="table-condensed"</b> itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;</pre>
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                         <div class="col-sm-6">
                             <div class="table-light">
                                 <div class="table-header"><div class="table-caption">Light Table</div></div>
-                                <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                                <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                                 <div class="table-footer">Footer</div>
                             </div>
                             <pre>&lt;div <b style="color:navy">class="table-light"</b>&gt;<br />&nbsp; &lt;div class="table-header"&gt;&lt;div class="table-caption"&gt;Light Table&lt;/div&gt;&lt;/div&gt;<br />&nbsp; &lt;mm-table class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;<br />&nbsp; &lt;div class="table-footer"&gt;Footer&lt;/div&gt;<br />&lt;/div&gt;</pre>
@@ -254,7 +254,7 @@
                         <div class="col-sm-6">
                             <div class="table-primary">
                                 <div class="table-header"><div class="table-caption">Primary Table</div></div>
-                                <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                                <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                                 <div class="table-footer">Footer</div>
                             </div>
                             <pre>&lt;div <b style="color:navy">class="table-primary"</b>&gt;<br />&nbsp; &lt;div class="table-header"&gt;&lt;div class="table-caption"&gt;Primary Table&lt;/div&gt;&lt;/div&gt;<br />&nbsp; &lt;mm-table class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;<br />&nbsp; &lt;div class="table-footer"&gt;Footer&lt;/div&gt;<br />&lt;/div&gt;</pre>
@@ -264,7 +264,7 @@
                         <div class="col-sm-6">
                             <div class="table-danger">
                                 <div class="table-header"><div class="table-caption">Danger Table</div></div>
-                                <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                                <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                                 <div class="table-footer">Footer</div>
                             </div>
                             <pre>&lt;div <b style="color:navy">class="table-danger"</b>&gt;<br />&nbsp; &lt;div class="table-header"&gt;&lt;div class="table-caption"&gt;Danger Table&lt;/div&gt;&lt;/div&gt;<br />&nbsp; &lt;mm-table class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;<br />&nbsp; &lt;div class="table-footer"&gt;Footer&lt;/div&gt;<br />&lt;/div&gt;</pre>
@@ -272,7 +272,7 @@
                         <div class="col-sm-6">
                             <div class="table-info">
                                 <div class="table-header"><div class="table-caption">Info Table</div></div>
-                                <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                                <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                                 <div class="table-footer">Footer</div>
                             </div>
                             <pre>&lt;div <b style="color:navy">class="table-info"</b>&gt;<br />&nbsp; &lt;div class="table-header"&gt;&lt;div class="table-caption"&gt;Info Table&lt;/div&gt;&lt;/div&gt;<br />&nbsp; &lt;mm-table class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;<br />&nbsp; &lt;div class="table-footer"&gt;Footer&lt;/div&gt;<br />&lt;/div&gt;</pre>
@@ -283,7 +283,7 @@
                         <div class="col-sm-6">
                             <div class="table-success">
                                 <div class="table-header"><div class="table-caption">Success Table</div></div>
-                                <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                                <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                                 <div class="table-footer">Footer</div>
                             </div>
                             <pre>&lt;div <b style="color:navy">class="table-success"</b>&gt;<br />&nbsp; &lt;div class="table-header"&gt;&lt;div class="table-caption"&gt;Success Table&lt;/div&gt;&lt;/div&gt;<br />&nbsp; &lt;mm-table class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;<br />&nbsp; &lt;div class="table-footer"&gt;Footer&lt;/div&gt;<br />&lt;/div&gt;</pre>
@@ -291,7 +291,7 @@
                         <div class="col-sm-6">
                             <div class="table-warning">
                                 <div class="table-header"><div class="table-caption">Warning Table</div></div>
-                                <mm-table table-class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
+                                <mm-table table-class="table-bordered" itemssource="vm.users" idfield="username" columns="['id','username','fullname','email']"></mm-table>
                                 <div class="table-footer">Footer</div>
                             </div>
                             <pre><span style="color: #0000ff; font-family: Consolas; font-size: small;"><span style="color: #0000ff; font-family: Consolas; font-size: small;"><span style="color: #000000; font-family: Consolas; font-size: small;">&lt;div <b style="color:navy">class="table-warning"</b>&gt;<br />&nbsp; &lt;div class="table-header"&gt;&lt;div class="table-caption"&gt;Warning Table&lt;/div&gt;&lt;/div&gt;<br />&nbsp; &lt;mm-table class="table-bordered" itemssource="users" idfield="username" columns="['id','username','fullname','email']"&gt;&lt;/mm-table&gt;<br />&nbsp; &lt;div class="table-footer"&gt;Footer&lt;/div&gt;<br />&lt;/div&gt;</span></span></span></pre>

@@ -1,6 +1,7 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="../gulpfile.js" />
 /// <reference path="app/app.js" />
+/// <reference path="App/Controllers/DirectiveCtrl.js" />
 /// <reference path="directives/components.js" />
 /// <reference path="directives/Controller/angularcomp.js" />
 /// <reference path="directives/dest/Interfaces/IDataContext.js" />

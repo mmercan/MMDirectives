@@ -34,15 +34,24 @@
     notificationWarning: any;
     notificationError: any;
     makeSound: any;
-
+    comments: any[];
         images : any[];
         fileAdded: any;
         locations: any[];
+        moviesInTheaters: any[];
+        supportTickets: any[];
+        lessUsers: any[];
+        notifications: any[];
+        texthtml: string;
+        contenttt: string;
+        mydate: string;
+
+        rating: number;
     constructor(private $scope: ng.IScope, $http: any, rottentService: any, alertService: any, notificationService:any) {
             this.title = "Matt";
 
 
-
+            this.contenttt = "Matt Mercan";
 
             this.events = [];
             rottentService.moviesUpcomingCall().then((data) =>{
@@ -61,22 +70,22 @@
             //        $scope.assemblyTree = [{ "$id": "2", "ProductAssembly": "Blade", "ComponentName": "Metal Sheet 5", "BillOfMaterialsID": 2433, "ProductAssemblyID": 316, "ComponentID": 486, "StartDate": "2004-09-05T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 4, "PerAssemblyQty": 1.00 }, { "$id": "3", "ProductAssembly": "Chain Stays", "ComponentName": "Metal Sheet 5", "BillOfMaterialsID": 1290, "ProductAssemblyID": 324, "ComponentID": 486, "StartDate": "2004-07-10T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "4", "ProductAssembly": "Down Tube", "ComponentName": "Metal Sheet 3", "BillOfMaterialsID": 875, "ProductAssemblyID": 327, "ComponentID": 483, "StartDate": "2004-06-26T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "5", "ProductAssembly": "Fork Crown", "ComponentName": "Metal Sheet 5", "BillOfMaterialsID": 492, "ProductAssemblyID": 350, "ComponentID": 486, "StartDate": "2004-04-18T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 4, "PerAssemblyQty": 1.00 }, { "$id": "6", "ProductAssembly": "Fork End", "ComponentName": "Metal Sheet 2", "BillOfMaterialsID": 1289, "ProductAssemblyID": 331, "ComponentID": 482, "StartDate": "2004-07-10T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 4, "PerAssemblyQty": 1.00 }, { "$id": "7", "ProductAssembly": "Head Tube", "ComponentName": "Metal Sheet 4", "BillOfMaterialsID": 3338, "ProductAssemblyID": 399, "ComponentID": 485, "StartDate": "2005-01-23T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "8", "ProductAssembly": "HL Fork", "ComponentName": "Blade", "BillOfMaterialsID": 2301, "ProductAssemblyID": 804, "ComponentID": 316, "StartDate": "2004-09-05T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 2.00 }, { "$id": "9", "ProductAssembly": "HL Fork", "ComponentName": "Fork Crown", "BillOfMaterialsID": 1204, "ProductAssemblyID": 804, "ComponentID": 350, "StartDate": "2004-09-09T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "10", "ProductAssembly": "HL Fork", "ComponentName": "Fork End", "BillOfMaterialsID": 17, "ProductAssemblyID": 804, "ComponentID": 331, "StartDate": "2004-04-04T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 2.00 }, { "$id": "11", "ProductAssembly": "HL Fork", "ComponentName": "Steerer", "BillOfMaterialsID": 3403, "ProductAssemblyID": 804, "ComponentID": 531, "StartDate": "2005-01-23T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "12", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Chain Stays", "BillOfMaterialsID": 1388, "ProductAssemblyID": 743, "ComponentID": 324, "StartDate": "2004-07-10T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 2.00 }, { "$id": "13", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Decal 1", "BillOfMaterialsID": 1849, "ProductAssemblyID": 743, "ComponentID": 325, "StartDate": "2004-07-20T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 2.00 }, { "$id": "14", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Decal 2", "BillOfMaterialsID": 3421, "ProductAssemblyID": 743, "ComponentID": 326, "StartDate": "2005-01-23T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 1.00 }, { "$id": "15", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Down Tube", "BillOfMaterialsID": 2509, "ProductAssemblyID": 743, "ComponentID": 327, "StartDate": "2004-09-05T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 1.00 }, { "$id": "16", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Head Tube", "BillOfMaterialsID": 3158, "ProductAssemblyID": 743, "ComponentID": 399, "StartDate": "2005-01-15T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 1.00 }, { "$id": "17", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "HL Fork", "BillOfMaterialsID": 172, "ProductAssemblyID": 743, "ComponentID": 804, "StartDate": "2004-04-04T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 1.00 }, { "$id": "18", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Paint - Black", "BillOfMaterialsID": 1389, "ProductAssemblyID": 743, "ComponentID": 492, "StartDate": "2004-07-10T00:00:00", "EndDate": null, "UnitMeasureCode": "OZ ", "BOMLevel": 2, "PerAssemblyQty": 8.00 }, { "$id": "19", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Seat Stays", "BillOfMaterialsID": 574, "ProductAssemblyID": 743, "ComponentID": 532, "StartDate": "2004-04-18T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 4.00 }, { "$id": "20", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Seat Tube", "BillOfMaterialsID": 955, "ProductAssemblyID": 743, "ComponentID": 533, "StartDate": "2004-06-26T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 1.00 }, { "$id": "21", "ProductAssembly": "HL Mountain Frame - Black, 42", "ComponentName": "Top Tube", "BillOfMaterialsID": 173, "ProductAssemblyID": 743, "ComponentID": 534, "StartDate": "2004-04-04T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 2, "PerAssemblyQty": 1.00 }, { "$id": "22", "ProductAssembly": "Seat Stays", "ComponentName": "Metal Sheet 7", "BillOfMaterialsID": 1769, "ProductAssemblyID": 532, "ComponentID": 484, "StartDate": "2004-09-19T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "23", "ProductAssembly": "Seat Tube", "ComponentName": "Metal Bar 2", "BillOfMaterialsID": 100, "ProductAssemblyID": 533, "ComponentID": 478, "StartDate": "2004-04-04T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }, { "$id": "24", "ProductAssembly": "Steerer", "ComponentName": "Metal Sheet 6", "BillOfMaterialsID": 2094, "ProductAssemblyID": 531, "ComponentID": 487, "StartDate": "2004-08-08T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 4, "PerAssemblyQty": 1.00 }, { "$id": "25", "ProductAssembly": "Top Tube", "ComponentName": "Metal Sheet 2", "BillOfMaterialsID": 491, "ProductAssemblyID": 534, "ComponentID": 482, "StartDate": "2004-04-18T00:00:00", "EndDate": null, "UnitMeasureCode": "EA ", "BOMLevel": 3, "PerAssemblyQty": 1.00 }];
 
 
-            //        $scope.comments = [{
-            //            email: "murat_mercan@hotmail.com", name: "Murat Mercan",
-            //            comments: [{ email: "scott@hanselman.com", name: "Scott Hanselman" }, {
-            //                email: "daron@yondem.com", name: "Daron Yondem",
-            //                comments: [{ email: "tim@timheuer.com", name: "Tim Heuer" }]
-            //            }]
-            //        }, { email: "m@m.com", name: "Michelle Bortz" }];
+            this.comments = [{
+                        email: "murat_mercan@hotmail.com", name: "Murat Mercan",
+                        comments: [{ email: "scott@hanselman.com", name: "Scott Hanselman" }, {
+                            email: "daron@yondem.com", name: "Daron Yondem",
+                            comments: [{ email: "tim@timheuer.com", name: "Tim Heuer" }]
+                        }]
+                    }, { email: "m@m.com", name: "Michelle Bortz" }];
 
             //    });
            // }, 100);
 
 
 
-            //rottentService.moviesInTheatersCall().then(function (data) {
-            //    $scope.moviesInTheaters = data.movies;
-            //});
+            rottentService.moviesInTheatersCall().then( (data)=> {
+                this.moviesInTheaters = data.movies;
+            });
 
 
             //$scope.hidemainmenu = function () {
@@ -122,11 +131,12 @@
             this.notificationError = function () { notificationService.error("<strong>Warning! </strong> something is Wrong", "Best check yo self, you're not looking too good. Change a few things up and try submitting again."); };
 
 
-            //$scope.mydate = new Date();
+            this.mydate = "01/01/2015"; //new Date();
+            this.rating = 3;
             //$scope.counter = 0;
             this.images = [];
             this.fileAdded = function (img) { alert(img.fileName); };
-            //$scope.texthtml = '<p>$("#my-tabs").tabs({<br />&nbsp;&nbsp;&nbsp; activate: function(event, ui) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $("#calendar").fullCalendar("render");<br />&nbsp;&nbsp;&nbsp; }<br />});</p> ';
+            this.texthtml = '<p>$("#my-tabs").tabs({<br />&nbsp;&nbsp;&nbsp; activate: function(event, ui) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $("#calendar").fullCalendar("render");<br />&nbsp;&nbsp;&nbsp; }<br />});</p> ';
 
             //$scope.mapselected = {};
             //$scope.maprerender = false;
@@ -148,7 +158,14 @@
             //});
 
             this.locations = [{ "lat": 47.602546250550006, "lng": -122.3385245574342, "html": "Seattle Ferry <br>First Info Window", "label": "Marker One" }, { "lat": 50.12553355541376, "lng": 8.721551945007263, "html": "Frankfurt<br>Second Info Window", "label": "Marker Two" }, { "lat": -35.28174503025667, "lng": 149.1287201618652, "html": "Canberra London Circuit <br>Third Info Window", "label": "Marker Three" }];
-
+            this.supportTickets = [{ title: "Server unavaible", ticketNumber: "201798", username: "Timothy Owens", status: "Completed", date: "today" }, { title: "Mobile App Problem", ticketNumber: "201797", username: "Opened by Denise Steiner ", status: "Pending", date: "2 days ago" }, { title: "PayPal issue", ticketNumber: "201796", username: "Opened by Robert Jang", status: "In progress", date: "3 days ago", isCritical: true }, { title: "IE8 problem", ticketNumber: "201795", username: "Opened by Robert Jang", status: "Rejected", date: "4 days ago" }, { title: "Server unavaible", ticketNumber: "201795201794", username: " Opened by Timothy Owens", status: "Completed", date: "5 days ago" }];
+            this.lessUsers = [
+                { id: 1, image: '/assets/demo/avatars/2.jpg', firstName: 'Robert', lastName: 'Jang', username: '@rjang', fullname: 'Robert Jang', email: 'rjang@@example.com', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. ', label: 'Lorem ipsum dolor sit amet ' },
+                { id: 2, image: '/assets/demo/avatars/3.jpg', firstName: 'Michelle', lastName: 'Bortz', username: '@mbortz ', fullname: 'Michelle Bortz', email: 'mbortz@example.com', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. ', label: 'Lorem ipsum dolor sit amet ' },
+                { id: 3, image: '/assets/demo/avatars/4.jpg', firstName: 'Timothy', lastName: 'Owens', username: '@towens ', fullname: 'Timothy Owens', email: 'towens@example.com', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. ', label: 'Lorem ipsum dolor sit amet ' },
+                { id: 4, image: '/assets/demo/avatars/5.jpg', firstName: 'Denise', lastName: 'Steiner', username: '@dsteiner ', fullname: 'Denise Steiner', email: 'dsteiner@example.com', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. ', label: 'Lorem ipsum dolor sit amet ' }
+            ];
+            this.notifications = [{ title: "SYSTEM", body: "<strong>Error 500</strong>: Syntax error in index.php at line <strong>461</strong>", due: "12h ago", color: "danger", icon: "fa-hdd-o" }, { title: "STORE", body: "You have <strong>9</strong> new orders.", due: "12h ago", color: "info", icon: "fa-truck" }, { title: "CRON DAEMON", body: "Job <strong>\"Clean DB\"</strong> has been completed.", due: "12h ago", color: "default", icon: "fa-clock-o" }, { title: "SYSTEM", body: "Server up.", due: "12h ago", color: "success", icon: "fa-hdd-o" }, { title: "SYSTEM", body: "Warning: Processor load 92%.", due: "12h ago", color: "warning", icon: "fa-hdd-o" }];
 
 
             this.timezonelist = [
