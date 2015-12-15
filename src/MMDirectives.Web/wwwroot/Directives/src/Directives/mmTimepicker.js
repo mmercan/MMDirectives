@@ -244,9 +244,9 @@
         template: "<table>" +
             "<tbody>" +
             "<tr class='text-center'>" +
-            "<td><a ng-click='incrementHours()' class='btn btn-outline btn-link' style='border: 0px; border-image: none;'><span class='glyphicon glyphicon-chevron-up'></span></a></td>" +
+            "<td><a ng-click='incrementHours()' class='btn btn-outline btn-link' style='border: 0px; border-image: none;'><i class='fa fa-angle-up fa-2x'></i></a></td>" +
             "<td>&nbsp;</td>" +
-            "<td><a ng-click='incrementMinutes()' class='btn btn-outline btn-link btn-default' style='border: 0px; border-image: none;'><span class='glyphicon glyphicon-chevron-up'></span></a></td>" +
+            "<td><a ng-click='incrementMinutes()' class='btn btn-outline btn-link btn-default' style='border: 0px; border-image: none;'><i class='fa fa-angle-up fa-2x'></i></a></td>" +
             "<td ng-show='showMeridian'></td>" +
             "</tr>" +
             "<tr>" +
@@ -260,9 +260,9 @@
             "<td ng-show='showMeridian'><button type='button' class='btn btn-outline btn-default text-center' ng-click='toggleMeridian()'>{{meridian}}</button></td>" +
             "</tr>" +
             "<tr class='text-center'>" +
-            "<td><a ng-click='decrementHours()' class='btn btn-outline btn-link' style='border: 0px; border-image: none;'><span class='glyphicon glyphicon-chevron-down'></span></a></td>" +
+            "<td><a ng-click='decrementHours()' class='btn btn-outline btn-link' style='border: 0px; border-image: none;'><i class='fa fa-angle-down fa-2x'></i></a></td>" +
             "<td>&nbsp;</td>" +
-            "<td><a ng-click='decrementMinutes()' class='btn btn-outline btn-link' style='border: 0px; border-image: none;'><span class='glyphicon glyphicon-chevron-down'></span></a></td>" +
+            "<td><a ng-click='decrementMinutes()' class='btn btn-outline btn-link' style='border: 0px; border-image: none;'><i class='fa fa-angle-down fa-2x'></a></td>" +
             "<td ng-show='showMeridian'></td>" +
             "</tr>" +
             "</tbody>" +
