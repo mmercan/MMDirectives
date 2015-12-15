@@ -234,10 +234,10 @@
     };
 }])
 
-.directive('timepicker', function () {
+.directive('mmtimepicker', function () {
     return {
         restrict: 'EA',
-        require: ['timepicker', '?^ngModel'],
+        require: ['mmtimepicker', '?^ngModel'],
         controller: 'TimepickerController',
         replace: true,
         scope: {},
@@ -251,11 +251,11 @@
             "</tr>" +
             "<tr>" +
             "<td style='width:50px;' class='form-group' ng-class=\"{'has-error': invalidHours}\">" +
-            "<input type='text' ng-model='hours' ng-change='updateHours()' class='form-control text-center' ng-mousewheel='incrementHours()' ng-readonly='readonlyInput' maxlength='2'>" +
+            "<input type='text' ng-model='hours' ng-change='updateHours()' class='form-control text-center' ng-mousewheel='incrementHours()' ng-readonly='readonlyInput'  min='0' max='23'>" +
             "</td>" +
             "<td>:</td>" +
             "<td style='width:50px;' class='form-group' ng-class=\"{'has-error': invalidMinutes}\">" +
-            "<input type='text' ng-model='minutes' ng-change='updateMinutes()' class='form-control text-center' ng-readonly='readonlyInput' maxlength='2'>" +
+            "<input type='text' ng-model='minutes' ng-change='updateMinutes()' class='form-control text-center' ng-readonly='readonlyInput' min='0' max='59'>" +
             "</td>" +
             "<td ng-show='showMeridian'><button type='button' class='btn btn-outline btn-default text-center' ng-click='toggleMeridian()'>{{meridian}}</button></td>" +
             "</tr>" +

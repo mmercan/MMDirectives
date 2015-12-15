@@ -112,8 +112,7 @@
 
         '</div>' +
         '<div class="panel-body">' +
-            '<div class="row">' +
-                '<input type="file"  ng-model-instant id="files" name="files" class="form-control" progress="progress" />' +
+            '<div class="row"> bbbb <input type="file"  ng-model-instant id="files" name="files" class="form-control" progress="progress" />' +
                 '{{progress}}' +
                 '<table class="table"><tr ><th>Name</th><th>size</th><th>Type</th></tr></thead><tbody><tr data-ng-repeat="file in files"><td>{{file.name}}</td><td>{{file.size}}</td><td>{{file.type}}</td></tr></tbody></table>' +
                 '<input type="button" id="btnupload" value="Upload" class="btn btn-primary" />' +

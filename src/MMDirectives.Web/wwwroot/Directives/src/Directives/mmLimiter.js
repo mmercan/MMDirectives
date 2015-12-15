@@ -103,8 +103,11 @@ var span = wrapper.find('span.input-group-addon');
                     options = {};
                 }
                
-                $element.on("keyup focus", $.proxy(updateCounter, this));
+               
             };
+            $element.on("keyup focus blur", function () {
+                $.proxy(updateCounter(), this)
+            });
 
         }
     }

@@ -1,0 +1,28 @@
+﻿
+<div class="row">
+    <div class="col-sm-12" ng-controller="directiveCtrl" ng-init="knobnumber = 1">
+        <div class="panel panel-primary">
+            <div class=" panel-heading">
+                <div class="panel-heading-text">Dashboard</div>
+            </div>
+            <div class="panel-body">
+                <!--#region knob  -->
+                <div class="tab-pane active" id="knob">
+                    <div mm-list="dir in vm.directives">
+                        <div class="data-template col-sm-3">
+                            <a ng-href="#/{{dir.name}}">
+                                <div class="well">
+                                    <img style="max-height:100%; max-width:100%" ng-src="/Directives/img/{{dir.name}}.png" />
+
+
+                                    <h2 style="text-align:center"> {{dir.name}}</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--#endregion -->
+            </div>
+        </div>
+    </div>
+</div>

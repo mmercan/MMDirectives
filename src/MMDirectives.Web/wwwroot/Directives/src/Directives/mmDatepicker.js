@@ -18,6 +18,11 @@
                         }
                     });
                     
+                    function toDate(dateStr) {
+                        var parts = dateStr.split("/");
+                        return new Date(parts[2], parts[1] - 1, parts[0]);
+                    }
+
                     attrs.$observe('ngModel', function (value) {
                         scope.$watch(value, function (newValue,oldValue) { 
                             if (newValue) {
@@ -31,7 +36,7 @@
                                         }
                                     }
                                 } else {
-                                    var dt = new Date(ngModelCtrl.$viewValue)
+                                    var dt = toDate(ngModelCtrl.$viewValue)
                                     if (dt.getMonth) {
                                         ngModelCtrl.$setViewValue(dt);//ngmodel will be changed and  $watch will trigirred
                                     }

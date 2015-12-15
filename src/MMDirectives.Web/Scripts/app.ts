@@ -13,7 +13,9 @@ module app {
         // Dashboard - Main page
             .state('dashboard', {
                 url: "/dashboard",
-                templateUrl: "/Directives/templates/knob.html",
+                controller: "directiveCtrl",
+                controllerAs: "vm",
+                templateUrl: "/Directives/templates/dashboard.html",
                 data: {
                     pageTitle: 'Dashboard',
                 }
