@@ -46,6 +46,8 @@
         contenttt: string;
         mydate: string;
 
+
+        contextmenuitems: any; contextinit: any; contextcalled: any;
         rating: number;
         directives: IDirective[];
     constructor(private $scope: ng.IScope, $http: any, rottentService: any, alertService: any, notificationService:any) {
@@ -426,9 +428,35 @@
                     image: '',
                     active: true,
                     description: '',
+                }, {
+                   name: 'mmcontextmenu',
+                    image: '',
+                    active: true,
+                    description: '',
                 }];
 
 
+
+           this.contextmenuitems = {
+               "edit": { name: "Edit", icon: "edit" },
+               "cut": { name: "Cut", icon: "cut" },
+               "copy": { name: "Copy", icon: "copy" },
+               "paste": { name: "Paste", icon: "paste" },
+               "delete": { name: "Delete", icon: "delete" },
+               "sep1": "---------",
+               "quit": { name: "Quit", icon: function ($element, key, item) { return 'context-menu-icon context-menu-icon-quit'; } }
+           }
+
+           this.contextinit = function (scope,$trigger, e) {
+               return {
+                   "edit": { name: "Edit", icon: "edit" },
+                   "cut": { name: "Cut", icon: "cut" },
+               }
+           }
+
+           this.contextcalled = function (scope, key, options) {
+               alert(key);
+           }
 
             //this.products = [];
             $http.get("/Productsjson.txt").success( (result)=> {

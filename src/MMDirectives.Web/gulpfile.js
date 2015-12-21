@@ -76,6 +76,36 @@ gulp.task("inject", function () {
 });
 
 
+
+gulp.task("inject:Production", function () {
+    gulp.src("Views/Shared/Src_Layout.cshtml")
+    .pipe(inject(gulp.src("wwwroot/Directives/directives.js"),
+    { ignorePath: 'wwwroot', addRootSlash: true, name: 'directives' }))
+        .pipe(inject(gulp.src(libjs),
+    { ignorePath: 'wwwroot', addRootSlash: true, name: 'libraries' }))
+                .pipe(inject(gulp.src(AppFiles),
+    { ignorePath: 'wwwroot', addRootSlash: true, name: 'app' }))
+       .pipe(rename('_LayoutProd.cshtml'))
+    .pipe(gulp.dest("Views/Shared"))
+
+});
+
+
+gulp.task("directive:minjs", function () {
+    [ gulp.src(directiveJsFiles)
+     .pipe(concat("wwwroot/Directives/directives.min.js"))
+     .pipe(uglify())
+     .pipe(gulp.dest(".")),
+
+
+
+      gulp.src(directiveJsFiles)
+     .pipe(concat("wwwroot/Directives/directives.js"))
+     .pipe(gulp.dest("."))
+    ]
+});
+
+
 gulp.task("directive:Less", function () {
     gulp.src("wwwroot/directives/src/less/directives.less").pipe(less()).pipe(gulp.dest("wwwroot/directives"));
 });

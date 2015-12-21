@@ -35,7 +35,7 @@
     $scope.selectPage = function (page) {
         if ($scope.page !== page && page > 0 && page <= $scope.totalPages) {
             ngModelCtrl.$setViewValue(page);
-            $scope.setResults(page, self.itemsPerPage, $scope.itemssource, $scope.filter,  $scope.sort, $scope.descending)
+            $scope.setResults(page, self.itemsPerPage, $scope.itemssource, $scope.filter, $scope.sort, $scope.descending)
             ngModelCtrl.$render();
         }
     };
@@ -102,7 +102,7 @@
                 }
 
             }
-          
+
             $scope.totalItems = filteredData.length;
             var from = (pagenumber - 1) * itemsPerPage;
             var to = pagenumber * itemsPerPage
@@ -134,25 +134,25 @@
             lastText: '@',
             itemssource: '=',
             filter: '=',
-            sort:'=',
-            descending:'=',
-            results:'=',
+            sort: '=',
+            descending: '=',
+            results: '=',
         },
         require: ['pagerSource', '?ngModel'],
         controller: 'mmPagerSourceController',
-        template:'<ul class="pagination">'+
-        '<li ng-if="boundaryLinks" ng-class="{disabled: noPrevious()}"><a href ng-click="selectPage(1)">{{getText("first")}}</a></li>'+
-        '<li ng-if="directionLinks" ng-class="{disabled: noPrevious()}"><a href ng-click="selectPage(page - 1)">{{getText("previous")}}</a></li>'+
-        '<li ng-repeat="page in pages track by $index" ng-class="{active: page.active}"><a href ng-click="selectPage(page.number)">{{page.text}}</a></li>'+
-        '<li ng-if="directionLinks" ng-class="{disabled: noNext()}"><a href ng-click="selectPage(page + 1)">{{getText("next")}}</a></li>'+
-        '<li ng-if="boundaryLinks" ng-class="{disabled: noNext()}"><a href ng-click="selectPage(totalPages)">{{getText("last")}}</a></li>'+
+        template: '<ul class="pagination">' +
+        '<li ng-if="boundaryLinks" ng-class="{disabled: noPrevious()}"><a href ng-click="selectPage(1)">{{getText("first")}}</a></li>' +
+        '<li ng-if="directionLinks" ng-class="{disabled: noPrevious()}"><a href ng-click="selectPage(page - 1)">{{getText("previous")}}</a></li>' +
+        '<li ng-repeat="page in pages track by $index" ng-class="{active: page.active}"><a href ng-click="selectPage(page.number)">{{page.text}}</a></li>' +
+        '<li ng-if="directionLinks" ng-class="{disabled: noNext()}"><a href ng-click="selectPage(page + 1)">{{getText("next")}}</a></li>' +
+        '<li ng-if="boundaryLinks" ng-class="{disabled: noNext()}"><a href ng-click="selectPage(totalPages)">{{getText("last")}}</a></li>' +
         '</ul>',
 
         //templateUrl: '/App/templates/pagination/pagination.html',
         replace: true,
         link: function (scope, element, attrs, ctrls) {
             var pagerSourceCtrl = ctrls[0], ngModelCtrl = ctrls[1];
-          
+
             if (!ngModelCtrl) {
                 return; // do nothing if no ng-model
             }
@@ -240,7 +240,7 @@
             };
         }
     };
-}])
+}]);
 
 
 

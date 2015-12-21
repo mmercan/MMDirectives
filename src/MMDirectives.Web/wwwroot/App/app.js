@@ -312,6 +312,14 @@ var app;
             data: {
                 pageTitle: '',
             }
+        }).state('mmcontextmenu', {
+            url: "/mmcontextmenu",
+            controller: "directiveCtrl",
+            controllerAs: "vm",
+            templateUrl: "/Directives/templates/mmcontextmenu.html",
+            data: {
+                pageTitle: '',
+            }
         });
         //<li><a href="#" data- toggle="tab" > Bootstrap X- Editable http://vitalets.github.io/x-editable/ </a></li>
     }

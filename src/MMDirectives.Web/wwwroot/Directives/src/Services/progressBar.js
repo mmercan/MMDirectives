@@ -1,5 +1,4 @@
 ﻿//progressBar.show("Data Loading");
-(function () {
     //---Required NProgress---//
     angular.module('directives').factory('progressBar', function () {
         var show = function (message) {
@@ -26,4 +25,3 @@
         };
 
     });
-})();

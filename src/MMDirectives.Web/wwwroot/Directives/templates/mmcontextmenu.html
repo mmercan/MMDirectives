@@ -1,0 +1,33 @@
+﻿<link href="/Directives/css/jquery.contextmenu.css" rel="stylesheet" />
+
+
+<div class="row">
+    <div class="col-sm-12" ng-controller="directiveCtrl" ng-init="knobnumber = 1">
+        <div class="panel panel-primary">
+            <div class=" panel-heading">
+                <div class="panel-heading-text">Context Menu</div>
+            </div>
+            <div class="panel-body">
+                <!--#region knob  -->
+                <div class="tab-pane active" id="knob">
+                    <div class="note note-info">
+                        <h2>restrict: 'ACM'</h2>
+
+
+                       
+
+                  
+                       
+                    </div>
+                    <div>
+
+                        <div mm-table="usr in vm.users" mmcontextmenu  contextinit="vm.contextinit" contextcalled="vm.contextcalled" selector="tr" items="vm.contextmenuitems" selecteditem="vm.selectedUSR"></div>
+
+                    </div>
+                   
+                </div>
+                <!--#endregion -->
+            </div>
+        </div>
+    </div>
+</div>
